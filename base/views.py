@@ -22,14 +22,20 @@ class SignupView(CreateView):
 class AddMenuView(CreateView):
     model = Menu
     template_name = 'menus.html'
-    success_url = reverse_lazy('stories')
+    success_url = reverse_lazy('menu-list')
     form_class = MenuForm
 
     def form_valid(self, form):
-        title = form.cleaned_data.get('title')
-        content = form.cleaned_data.get('content')
-        self.object = form.save(commit=False)
-        self.object.author = self.request.user
-        self.object.save()
+        form.instance.author = self.request.user
         return super().form_valid(form)
+    
+class MenuListView(ListView):
+    template_name = 'menu-list.html'
+    context_object_name = 'menulists'
+
+    def get_queryset(self):
+        return Menu.objects.all()
+
+class DashboardView(TemplateView):
+    template_name = 'dashboard.html'
     

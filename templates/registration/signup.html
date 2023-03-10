@@ -10,7 +10,7 @@
             <div class="card mb-3">
                 <div class="card-body">
                     <h4 class="card-title mb-4">Register your account</h4>
-                    <form>
+                    <form method="post">
                         {% csrf_token %}
                         {{ form | crispy }}
                         <button class="btn btn-light" type="submit">Register</button>
