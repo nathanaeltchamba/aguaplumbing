@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+    <div class="text-center mt-5">
+        <h3>Menu Detail Page</h3>
+        <p>{{ menu.title }}</p>
+        <p>{{ menu.content }}</p>
+        <div class="tools">
+            <a href="{% url 'menu-update' menu.slug %}" class="btn btn-dark">Update</a>
+            <a href="{% url 'menu-delete' menu.slug %}" class="btn btn-danger">Delete</a>
+        </div>
+    </div>
+</div>
+  
+{% endblock content %}

@@ -2,6 +2,15 @@
 
 {% block content %}
 
-
+<div class="container">
+    <div class="text-center mt-4">
+        <h3>Dashboard</h3>
+    </div>
+    <div class="dash">
+        <h4>View your Menu List</h4>
+        <a href="{% url 'menu-list' %}" class="btn btn-outline-dark">Menu List</a>
+        <a href="{% url 'create-menu' %}" class="btn btn-outline-dark">Create Menu</a>
+    </div>
+</div>
   
 {% endblock content %}

@@ -1,9 +1,9 @@
-from django.shortcuts import render
-from django.urls import reverse_lazy
+from django.shortcuts import get_object_or_404, render
+from django.urls import reverse_lazy, reverse
 from django.views.generic import TemplateView, ListView, UpdateView, DeleteView, DetailView, CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import CustomUserCreationForm, MenuForm
-from .models import Menu
+from .models import Menu, User
 
 # Create your views here.
 class Home(TemplateView):
@@ -35,6 +35,44 @@ class MenuListView(ListView):
 
     def get_queryset(self):
         return Menu.objects.all()
+    
+
+class MenuDetailView(DeleteView):
+    model = Menu
+    template_name = 'menu-detail.html'
+
+    def get_object(self, querset=None):
+        return get_object_or_404(Menu, slug=self.kwargs.get('slug'))
+    
+    def get(self, request, *args, **kwargs):
+        menu = self.get_object()
+        Menu.objects.filter(slug=menu.slug)
+        return super().get(request, *args, **kwargs)
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['user'] = self.request.user
+        return context
+
+class MenuUpdateView(UpdateView):
+    model = Menu
+    template_name = 'menu-update.html'
+    fields = ['title', 'content']
+
+    def form_valid(self, form):
+        custom_user, created = User.objects.get_or_create(username=self.request.user.username)
+        form.instance.author = custom_user
+        return super().form_valid(form)
+    
+    def get_success_url(self):
+        return reverse('menu-detail', kwargs={'slug': self.object.slug})
+    
+class MenuDelete(DeleteView):
+    model = Menu 
+    template_name = 'menu-delete.html'
+
+    def get_success_url(self):
+        return reverse('menu-list')
 
 class DashboardView(TemplateView):
     template_name = 'dashboard.html'

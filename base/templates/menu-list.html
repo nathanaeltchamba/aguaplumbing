@@ -9,6 +9,7 @@
         <div class="card-body">
             <h4 class="card-title">{{ menu.title }}</h4>
             <p class="card-text">{{ menu.content }}</p>
+            <a href="{% url 'menu-detail' menu.slug %}">Detail page</a>
         </div>
     </div>
     {% endfor %}
