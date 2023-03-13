@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<div class="container">
+<!-- <div class="container">
     <div class="text-center mt-4">
         <h3>Dashboard</h3>
     </div>
@@ -10,6 +10,23 @@
         <h4>View your Menu List</h4>
         <a href="{% url 'menu-list' %}" class="btn btn-outline-dark">Menu List</a>
         <a href="{% url 'create-menu' %}" class="btn btn-outline-dark">Create Menu</a>
+    </div>
+
+</div> -->
+<div class="container-fluid">
+    <button class="btn btn-outline-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#Id1"
+        aria-controls="Id1">View Menu</button>
+    
+    <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="Id1"
+        aria-labelledby="Enable both scrolling & backdrop">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="Enable both scrolling & backdrop">Backdrop with scrolling</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <a href="{% url 'menu-list' %}" class="btn btn-outline-dark">Menu List</a>
+            <a href="{% url 'create-menu' %}" class="btn btn-outline-dark">Create Menu</a>
+        </div>
     </div>
 </div>
   

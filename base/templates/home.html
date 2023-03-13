@@ -2,10 +2,27 @@
 
 
 {% block content %}
+
+{% if messages %}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    {% for message in messages %}
+    <strong>{{message}}</strong> 
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    {% endfor %}
+</div>
+{% endif %}
    
     <div class="container">
-        <div class="text-center mt-4">
-            <h3>Welcome to Agua Plumbing</h3>
+
+        <div class="p-5 my-4 bg-light rounded-3">
+            <div class="container-fluid py-5">
+              <h1 class="display-5 fw-bold">Welcome to Agua Plumbing</h1>
+              <p class="col-md-8 fs-4">At Agua Plumbing, our mission is to provide our customers with exceptional plumbing services that meet their unique needs and exceed their expectations. We strive to build lasting relationships with our customers based on trust, reliability, and quality workmanship.<!--  We are committed to being transparent and honest in all our dealings, and we take
+            pride in delivering timely and affordable solutions to our customers' plumbing problems. Our team of skilled and
+            experienced plumbers is dedicated to ensuring that our customers receive the highest level of customer service and
+            satisfaction, and we are always looking for ways to improve our services and stay ahead of the competition.--></p> 
+              <button class="btn btn-secondary btn-lg" type="button">Example button</button>
+            </div>
         </div>
     </div>
 

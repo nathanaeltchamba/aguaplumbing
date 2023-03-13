@@ -10,12 +10,19 @@
                 <li class="nav-item">
                     <a class="nav-link active" href="/" aria-current="page">Home <span class="visually-hidden">(current)</span></a>
                 </li>
+                {% if request.user.is_authenticated %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a>
                 </li>
+                {% endif %}
             </ul>
             <ul class="navbar-nav ms-auto mt-lg-0">
+
+                
                 {% if request.user.is_authenticated %}
+                <li class="nav-item">
+                    <small class="nav-link">{{request.user.username | title }} is logged in</small>
+                </li>
                 <li class="nav-item">
                     <a href="{% url 'logout' %}" class="nav-link">Logout</a>
                 </li>
