@@ -36,7 +36,7 @@ class CustomLoginView(LoginView):
     
 class AddMenuView(LoginRequiredMixin, CreateView):
     model = Menu
-    template_name = 'menus.html'
+    template_name = 'menu-create.html'
     success_url = reverse_lazy('menu-list')
     form_class = MenuForm
 

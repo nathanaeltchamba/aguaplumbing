@@ -3,7 +3,7 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<div class="container mt-2">
+<div class="container my-4">
     <h1>
         <strong>Add To Your Menu</strong>
     </h1>
@@ -11,7 +11,7 @@
     <form action="" method="post">
         {% csrf_token %}
         {{ form | crispy }}
-        <button class="button is-success" type="submit" value="Submit">Publish</button>
+        <button class="btn btn-dark" type="submit" value="Submit">Publish</button>
     </form>
     </div>
 </div>
