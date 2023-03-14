@@ -8,7 +8,7 @@
     <div class="card my-3">
         <div class="card-body">
             <h4 class="card-title">{{ menu.title }}</h4>
-            <p class="card-text">{{ menu.content }}</p>
+            <p class="card-text">{{ menu.content | safe }}</p>
             <a href="{% url 'menu-detail' menu.slug %}">{{menu.title}} page</a>
         </div>
     </div>

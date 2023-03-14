@@ -9,7 +9,8 @@
     <div class="text-center mt-5">
         <h3>Menu Detail Page</h3>
         <p>{{ menu.title }}</p>
-        <p>{{ menu.content }}</p>
+        <p>{{ menu.content|safe }}</p>
+        <p>{{ menu.content_upload|safe}}</p>
         <div class="tools">
             <a href="{% url 'menu-update' menu.slug %}" class="btn btn-dark">Update</a>
             <a href="{% url 'menu-delete' menu.slug %}" class="btn btn-danger">Delete</a>

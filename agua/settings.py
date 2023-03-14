@@ -27,6 +27,14 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+        'height': 'h-full',
+        'width': 'w-full',
+    },
+}
+
 
 # Application definition
 
@@ -44,6 +52,8 @@ INSTALLED_APPS = [
     #downloaded apps
     'crispy_forms',
     'crispy_bootstrap5',
+    'ckeditor',
+    'ckeditor_uploader',
 ]
 
 MIDDLEWARE = [
@@ -124,7 +134,13 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 STATIC_URL = "static/"
 
+STATIC_ROOT = BASE_DIR / "static"
+
 MEDIA_URL = '/media/'
+
+MEDIA_ROOT = BASE_DIR / "media"
+
+CKEDITOR_UPLOAD_PATH = 'uploads/'
 
 LOGOUT_REDIRECT_URL = '/login'
 

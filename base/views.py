@@ -4,7 +4,7 @@ from django.views.generic import TemplateView, ListView, UpdateView, DeleteView,
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView
 from django.contrib import messages
-from .forms import CustomUserCreationForm, MenuForm
+from .forms import CustomUserCreationForm, MenuForm, EditMenuForm
 from .models import Menu, User
 
 # Create your views here.
@@ -72,7 +72,7 @@ class MenuDetailView(DeleteView):
 class MenuUpdateView(LoginRequiredMixin, UpdateView):
     model = Menu
     template_name = 'menu-update.html'
-    fields = ['title', 'content']
+    form_class = EditMenuForm
 
     def form_valid(self, form):
         custom_user, created = User.objects.get_or_create(username=self.request.user.username)

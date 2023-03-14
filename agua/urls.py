@@ -23,6 +23,7 @@ from base.views import SignupView
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('', include('base.urls')),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
     path('login/', LoginView.as_view(), name = 'login'),
     path('logout/', LogoutView.as_view(), name = 'logout'),
     path('signup/', SignupView.as_view(), name = 'signup'),
