@@ -17,19 +17,21 @@ class MenuForm(forms.ModelForm):
     content = forms.CharField(widget=CKEditorWidget())
     class Meta:
         model = Menu
-        fields  = ['title','content']
+        fields  = ['title','content', 'snippet']
         widgets = {
-            'title': forms.TextInput(attrs={'class': 'form-control'}),
+            'title': forms.TextInput(attrs={'class': 'form-control w-75'}),
             'content': forms.Textarea(attrs={'class': 'form-control'}),
+            'snippet': forms.TextInput(attrs={'class': 'form-control w-75'}),
         }
         
 class EditMenuForm(forms.ModelForm):
     content = forms.CharField(widget=CKEditorWidget())
     class Meta:
         model = Menu
-        fields  = ['title','content']
+        fields  = ['title','content', 'snippet']
         widgets = {
-            'title': forms.TextInput(attrs={'class': 'form-control'}),
+            'title': forms.TextInput(attrs={'class': 'form-control w-75'}),
             'content': forms.Textarea(attrs={'class': 'form-control'}),
+            'snippet': forms.TextInput(attrs={'class': 'form-control w-75'}),
         }
         

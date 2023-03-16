@@ -11,6 +11,7 @@ class Menu(models.Model):
     title = models.CharField(max_length=100)
     content = RichTextUploadingField(blank=True, null=True)
     author = models.ForeignKey(User, on_delete= models.CASCADE)
+    snippet = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add= True)
     updated_at = models.DateTimeField(auto_now=True)
     slug = models.SlugField(unique=True)

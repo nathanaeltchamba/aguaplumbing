@@ -92,3 +92,4 @@ class MenuDelete(LoginRequiredMixin, DeleteView):
 class DashboardView(LoginRequiredMixin, TemplateView):
     template_name = 'dashboard.html'
     
+# need to fix the imaage that appears on the on the menu list ( youtube video on snippets )

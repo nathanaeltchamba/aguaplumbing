@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -132,9 +133,12 @@ USE_TZ = True
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-STATIC_URL = "static/"
+STATIC_URL = "/static/"
 
-STATIC_ROOT = BASE_DIR / "static"
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+
 
 MEDIA_URL = '/media/'
 
@@ -143,6 +147,8 @@ MEDIA_ROOT = BASE_DIR / "media"
 CKEDITOR_UPLOAD_PATH = 'uploads/'
 
 LOGOUT_REDIRECT_URL = '/login'
+
+LOGIN_URL = '/login'
 
 LOGIN_REDIRECT_URL = '/'
 

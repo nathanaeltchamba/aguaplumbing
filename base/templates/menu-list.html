@@ -5,11 +5,13 @@
 <div class="container">
     <h4 class="text-center mt-4">Menu List</h4>
     {% for menu in menulists %}
-    <div class="card my-3">
-        <div class="card-body">
-            <h4 class="card-title">{{ menu.title }}</h4>
-            <p class="card-text">{{ menu.content | safe }}</p>
-            <a href="{% url 'menu-detail' menu.slug %}">{{menu.title}} page</a>
+    <div class="col-md-6 offset-3">
+        <div class="card my-3">
+            <div class="card-body">
+                <h4 class="card-title">{{ menu.title }}</h4>
+                <p class="card-text">{{ menu.snippet }}</p>
+                <a href="{% url 'menu-detail' menu.slug %}">{{menu.title}} page</a>
+            </div>
         </div>
     </div>
     {% endfor %}
