@@ -8,8 +8,14 @@ from .forms import CustomUserCreationForm, MenuForm, EditMenuForm
 from .models import Menu, User
 
 # Create your views here.
-class Home(TemplateView):
+class Home(ListView):
     template_name = 'home.html'
+    model = Menu
+    context_object_name = 'menulists'
+
+    def get_queryset(self):
+        return Menu.objects.all()
+
 
 
 class SignupView(CreateView):
@@ -37,7 +43,7 @@ class CustomLoginView(LoginView):
 class AddMenuView(LoginRequiredMixin, CreateView):
     model = Menu
     template_name = 'menu-create.html'
-    success_url = reverse_lazy('menu-list')
+    success_url = reverse_lazy('Home')
     form_class = MenuForm
 
     def form_valid(self, form):
