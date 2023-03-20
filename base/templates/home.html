@@ -19,27 +19,50 @@
               <h1 class="display-5 fw-bold">Welcome to Agua Plumbing</h1>
               <p class="col-md-8 fs-4">At Agua Plumbing, our mission is to provide our customers with exceptional plumbing services that meet their unique needs and exceed their expectations. 
                 We strive to build lasting relationships with our customers based on trust, reliability, and quality workmanship.</p> 
-              <button class="btn btn-secondary btn-lg" type="button">Example button</button>
+              <button class="btn btn-secondary btn-lg" type="button">Contact Us</button>
             </div>
         </div>
     </div>
 
-    <section class="top">
+    <section class="about">
+
+    </section>
+    <section class="contact">
+
+    </section>
+    <section id="services">
         <div class="container">
-            {% for menu in menulists %}
-            <div class="card my-3 border border-0 bg-light">
-                <div class="card-body">
-                    <h4 class="card-title">{{menu.title}}</h4>
-                    <p class="card-text">{{menu.content|safe}}</p>
+            <h2>Our Services</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="service-box h-100">
+                        <i class="fa fa-wrench"></i>
+                        <h3>Emergency Plumbing</h3>
+                        <p>We offer 24/7 emergency plumbing services to ensure that you never have to wait for help when you
+                            need it the most.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-box h-100">
+                        <i class="fa fa-tint"></i>
+                        <h3>Leak Detection</h3>
+                        <p>Our expert plumbers use the latest technology to detect and repair leaks in your pipes and
+                            fixtures, saving you time and money.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-box h-100">
+                        <i class="fa fa-shower"></i>
+                        <h3>Bathroom Plumbing</h3>
+                        <p>We specialize in bathroom plumbing services, including faucet and fixture installation, toilet
+                            repairs, and shower installations.</p>
+                    </div>
                 </div>
             </div>
-            {% endfor %}
         </div>
     </section>
-    <!-- <section class="mid">
-        <h3>Middle Section</h3>
-    </section>
-    <section class="bot">
+
+    <!-- <section class="bot">
         <h3>Bottom Section</h3>
     </section> -->
   

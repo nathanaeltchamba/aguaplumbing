@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="container my-4">
+    <h1 class="text-center mt-2">
+        <strong>Create your Service Page</strong>
+    </h1>
+    <div class="card">
+        <div class="card-body p-5 bg-light">
+            <form action="" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                {{ form.media }}
+                <button class="btn btn-dark" type="submit" value="Submit">Publish</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

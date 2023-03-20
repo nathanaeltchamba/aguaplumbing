@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+    <div class="back-button">
+        <!-- <a href="{% url 'menu-list' %}">Service List</a> -->
+    </div>
+    <div class="text-center mt-5">
+        <h3>Service Detail Page</h3>
+        <p>{{ service.title }}</p>
+        <p>{{ service.content|safe }}</p>
+        <div class="tools">
+            <a href="{% url 'service-update' service.slug %}" class="btn btn-dark">Update</a>
+            <a href="{% url 'service-delete' service.slug %}" class="btn btn-danger">Delete</a>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

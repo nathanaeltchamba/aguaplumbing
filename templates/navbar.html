@@ -1,6 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/">Agua Plumbing</a>
+        <!-- <a class="navbar-brand" href="/">Agua Plumbing</a> -->
+        <a class="navbar-brand" href="/"><img class="img-fluid" height="75px" width="125px" src="/media/images/logo.png" alt=""></a>
         <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
             data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
             aria-label="Toggle navigation">
@@ -11,6 +12,15 @@
                 <li class="nav-item">
                     <a class="nav-link active" href="/" aria-current="page">Home <span
                             class="visually-hidden">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Our Services</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Contact Us</a>
                 </li>
                 {% if request.user.is_authenticated %}
                 <li class="nav-item">
