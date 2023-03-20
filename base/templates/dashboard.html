@@ -2,32 +2,78 @@
 
 {% block content %}
 
-<!-- <div class="container">
-    <div class="text-center mt-4">
-        <h3>Dashboard</h3>
-    </div>
-    <div class="dash">
-        <h4>View your Menu List</h4>
-        <a href="{% url 'menu-list' %}" class="btn btn-outline-dark">Menu List</a>
-        <a href="{% url 'create-menu' %}" class="btn btn-outline-dark">Create Menu</a>
-    </div>
-
-</div> -->
 <div class="container-fluid">
-    <button class="btn btn-outline-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#Id1"
+    <button class="btn btn-outline-secondary mt-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#Id1"
         aria-controls="Id1">View Menu</button>
     
     <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="Id1"
         aria-labelledby="Enable both scrolling & backdrop">
         <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="Enable both scrolling & backdrop">Backdrop with scrolling</h5>
+            <h4 class="offcanvas-title" id="Enable both scrolling & backdrop">Customize Your Website</h4> <!-- OffCanvas Title goes here -->
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
-            <a href="{% url 'menu-list' %}" class="btn btn-outline-dark">Menu List</a>
-            <a href="{% url 'create-menu' %}" class="btn btn-outline-dark">Create Menu</a>
+            <div class="dropdown">
+                <i class="fa-solid fa-bars-progress"></i><button class="btn btn-secondary dropdown-toggle w-100 fs-4 bg-primary" type="button" id="triggerId" data-bs-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                            Website Management
+                        </button>
+                <div class="dropdown-menu w-100" aria-labelledby="triggerId">
+                    <a class="dropdown-item" href="{% url 'create-menu' %}">Create 'Menu' Page</a>
+                    <a class="dropdown-item" href="{% url 'create-service' %}">Create 'Service' Page</a>
+                    <h6 class="dropdown-header">View Your Created Lists</h6>
+                    <a class="dropdown-item" href="{% url 'menu-list' %}">Menu List</a>
+                    <a class="dropdown-item" href="#">Service List</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">After divider action</a>
+                </div>
+            </div>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div>
+                <h5 class="mt-4">Dashboard Static Content</h5>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <section class="menu my-3">
+                <div class="row">
+                    {% for menu in menulist %}
+                    <div class="col-md-4">
+                        <div class="card h-100">
+                            <h5 class="card-header">{{menu.title}}</h5>
+                            <div class="card-body">
+                                <p class="card-text">{{menu.content|safe}}</p>
+                                <a href="{% url 'menu-detail' menu.slug %}" class="card-text">{{menu.title}}</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </section>
+            <section class="service mt-4">
+                <div class="row">
+                    {% for service in services %}
+                    <div class="col-md-4">
+                        <div class="card h-100">
+                            <h5 class="card-header">{{service.title}}</h5>
+                            <div class="card-body">
+                                <p class="card-text">{{service.content|safe}}</p>
+                                <a class="card-text" href="{% url 'service-detail' service.slug %}">{{service.title}}</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </section>
+            <section class="about">
+            
+            </section>
+        </div>
+    </div>
+
 </div>
   
 {% endblock content %}

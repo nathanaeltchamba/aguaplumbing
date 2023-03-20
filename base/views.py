@@ -165,4 +165,11 @@ class AddAboutUsView(LoginRequiredMixin, CreateView):
 
 class DashboardView(LoginRequiredMixin, TemplateView):
     template_name = 'dashboard.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['menulist'] = Menu.objects.all()
+        context['aboutus'] = About.objects.first()
+        context['services'] = Service.objects.all()
+        return context
     
