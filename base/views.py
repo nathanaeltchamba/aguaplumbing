@@ -14,8 +14,20 @@ class Home(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['aboutus'] = About.objects.first()
-        context['services'] = Service.objects.all()
         return context
+    
+    def get(self, request):
+        context = {}
+
+        services_card_1 = Service.objects.filter(card_number=1)
+        services_card_2 = Service.objects.filter(card_number=2)
+        services_card_3 = Service.objects.filter(card_number=3)
+
+        context['services_card_1'] = services_card_1
+        context['services_card_2'] = services_card_2
+        context['services_card_3'] = services_card_3
+
+        return render(request, 'home.html', context)
     
     
 

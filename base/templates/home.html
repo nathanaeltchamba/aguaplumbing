@@ -37,25 +37,28 @@
                 <div class="col-md-4">
                     <div class="service-box h-100">
                         <i class="fa fa-wrench"></i>
-                        <h3>Emergency Plumbing</h3>
-                        <p>We offer 24/7 emergency plumbing services to ensure that you never have to wait for help when you
-                            need it the most.</p>
+                        {% for service in services_card_1 %}
+                        <h3>{{service.title}}</h3>
+                        <p>{{service.content|safe}}</p>
+                        {% endfor %}
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="service-box h-100">
                         <i class="fa fa-tint"></i>
-                        <h3>Leak Detection</h3>
-                        <p>Our expert plumbers use the latest technology to detect and repair leaks in your pipes and
-                            fixtures, saving you time and money.</p>
+                        {% for service in services_card_2 %}
+                        <h3>{{service.title}}</h3>
+                        <p>{{service.content|safe}}</p>
+                        {% endfor %}
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="service-box h-100">
                         <i class="fa fa-shower"></i>
-                        <h3>Bathroom Plumbing</h3>
-                        <p>We specialize in bathroom plumbing services, including faucet and fixture installation, toilet
-                            repairs, and shower installations.</p>
+                        {% for service in services_card_3 %}
+                        <h3>{{service.title}}</h3>
+                        <p>{{service.content|safe}}</p>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
