@@ -3,16 +3,20 @@
 {% block content %}
 
 <div class="container">
-    <div class="back-button">
-        <!-- <a href="{% url 'menu-list' %}">Service List</a> -->
-    </div>
-    <div class="text-center mt-5">
-        <h3>Service Detail Page</h3>
-        <p>{{ service.title }}</p>
-        <p>{{ service.content|safe }}</p>
-        <div class="tools">
+    <div class="row mt-5">
+        <div class="col-md-7 offset-2">
+            <div class="service-box h-100">
+                <i class="fa fa-wrench"></i>
+                <h3>{{service.title}}</h3>
+                <p>{{service.content|safe}}</p>
+            </div>
+            <div class="tools">
+            </div>
+        </div>
+        <div class="col-md-3">
             <a href="{% url 'service-update' service.slug %}" class="btn btn-dark">Update</a>
             <a href="{% url 'service-delete' service.slug %}" class="btn btn-danger">Delete</a>
+            <a class="btn btn-dark" href="/">Home</a>
         </div>
     </div>
 </div>

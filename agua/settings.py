@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'crispy_bootstrap5',
     'ckeditor',
     'ckeditor_uploader',
+    'fontawesomefree',
 ]
 
 MIDDLEWARE = [

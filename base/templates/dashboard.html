@@ -5,19 +5,20 @@
 <div class="container-fluid">
     <button class="btn btn-outline-secondary mt-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#Id1"
         aria-controls="Id1">View Menu</button>
-    
+
     <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="Id1"
         aria-labelledby="Enable both scrolling & backdrop">
         <div class="offcanvas-header">
-            <h4 class="offcanvas-title" id="Enable both scrolling & backdrop">Customize Your Website</h4> <!-- OffCanvas Title goes here -->
+            <h4 class="offcanvas-title" id="Enable both scrolling & backdrop">Customize Your Website</h4>
+            <!-- OffCanvas Title goes here -->
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
             <div class="dropdown">
-                <i class="fa-solid fa-bars-progress"></i><button class="btn btn-secondary dropdown-toggle w-100 fs-4 bg-primary" type="button" id="triggerId" data-bs-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">
-                            Website Management
-                        </button>
+                <button class="btn btn-primary custom dropdown-toggle w-100 fs-4" type="button" id="triggerId"
+                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Website Management
+                </button>
                 <div class="dropdown-menu w-100" aria-labelledby="triggerId">
                     <a class="dropdown-item" href="{% url 'create-menu' %}">Create 'Menu' Page</a>
                     <a class="dropdown-item" href="{% url 'create-service' %}">Create 'Service' Page</a>
@@ -32,21 +33,46 @@
     </div>
 
     <div class="row">
-        <div class="col-md-4">
-            <div>
-                <h5 class="mt-4">Dashboard Static Content</h5>
+        <div class="col-md-5">
+            <div class="row">
+                <div class="sidebar">
+                    <div class="d-flex justify-content-between align-items-center mb4">
+                        <h3 class="mb-0">Dashboard</h3>
+                        <button class="btn btn-sm btn-primary"><i class="fas fa-plus"></i>New Project</button>
+                    </div>
+                    <ul class="nav flex-column mb-4">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link"><i class="fas fa-tachometer-alt me-2"></i>Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fas fa-chart-line me-2"></i> Analytics</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
-        <div class="col-md-8">
-            <section class="menu my-3">
-                <div class="row">
+        <div class="col-md-7">
+
+            <section class="menu mt-4">
+                <div class="row row-cols-1 row-cols-md-3 g-4">
                     {% for menu in menulist %}
-                    <div class="col-md-4">
-                        <div class="card h-100">
-                            <h5 class="card-header">{{menu.title}}</h5>
+                    <div class="col">
+                        <div class="card project-card h-100">
                             <div class="card-body">
+                                <h5 class="card-title">{{menu.title}}</h5>
                                 <p class="card-text">{{menu.content|safe}}</p>
-                                <a href="{% url 'menu-detail' menu.slug %}" class="card-text">{{menu.title}}</a>
+                            </div>
+                            <div class="card-footer bg-white">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="d-flex align-items-center">
+                                        <a class="text-decoration-none" href="{% url 'menu-update' menu.slug %}"><i
+                                                class="fa-regular fa-pen-to-square text-primary"></i></a>
+                                    </div>
+                                    <div class="text-muted">
+                                        <span class="ms-1 fst-italic"><a class="text-decoration-none"
+                                                href="{% url 'menu-update' menu.slug %}">Update {{menu.title}}</a></span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -54,26 +80,75 @@
                 </div>
             </section>
             <section class="service mt-4">
-                <div class="row">
+                <div class="row row-cols-1 row-cols-md-3 g-4">
                     {% for service in services %}
-                    <div class="col-md-4">
-                        <div class="card h-100">
-                            <h5 class="card-header">{{service.title}}</h5>
+                    <div class="col">
+                        <div class="card project-card h-100">
                             <div class="card-body">
+                                <h5 class="card-title">{{service.title}}</h5>
                                 <p class="card-text">{{service.content|safe}}</p>
-                                <a class="card-text" href="{% url 'service-detail' service.slug %}">{{service.title}}</a>
+                            </div>
+                            <div class="card-footer bg-white">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="d-flex align-items-center">
+                                        <a class="text-decoration-none"
+                                            href="{% url 'service-update' service.slug %}"><i
+                                                class="fa-regular fa-pen-to-square text-primary"></i></a>
+                                    </div>
+                                    <div class="text-muted">
+                                        <span class="ms-1 fst-italic"><a class="text-decoration-none"
+                                                href="{% url 'service-update' service.slug %}">Update
+                                                {{service.title}}</a></span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     {% endfor %}
                 </div>
             </section>
+
             <section class="about">
-            
+
             </section>
         </div>
     </div>
+    <button class="btn btn-primary btn-starwars">Join the Rebellion</button>
+
+    <!-- <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-2 col-md-3 sidebar">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h3 class="mb-0">Dashboard</h3>
+                    <button class="btn btn-sm btn-primary"><i class="fas fa-plus"></i> New Project</button>
+                </div>
+                <ul class="nav flex-column mb-4">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#"><i class="fas fa-tachometer-alt me-2"></i> Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-chart-line me-2"></i> Analytics</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-cog me-2"></i> Settings</a>
+                    </li>
+                </ul>
+                <h6 class="sidebar-heading mb-3">Projects</h6>
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-tasks me-2"></i> Active Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-check-circle me-2"></i> Completed Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-trash me-2"></i> Deleted Projects</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div> -->
 
 </div>
-  
+
 {% endblock content %}
