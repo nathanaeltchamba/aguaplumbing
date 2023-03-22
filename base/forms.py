@@ -97,3 +97,8 @@ class ContactUpdateForm(forms.ModelForm):
     class Meta:
         model = Contact
         fields = ('title', 'address', 'email', 'phone_number','business_hours', 'service_area', 'content')
+
+class InquiryForm(forms.ModelForm):
+    name = forms.CharField(max_length=100)
+    email = forms.EmailField()
+    message = forms.CharField(widget=forms.Textarea)

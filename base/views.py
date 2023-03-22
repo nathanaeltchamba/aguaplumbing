@@ -4,7 +4,7 @@ from django.views.generic import TemplateView, ListView, UpdateView, DeleteView,
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView
 from django.contrib import messages
-from .forms import (CustomUserCreationForm, MenuForm, EditMenuForm, 
+from .forms import (CustomUserCreationForm, InquiryForm, MenuForm, EditMenuForm, 
                     ServiceForm, AboutForm, UpdateServiceForm, ContactCreationForm, ContactUpdateForm)
 from .models import Menu, User, Service, About, Contact
 
@@ -175,21 +175,23 @@ class AddContactView(LoginRequiredMixin, CreateView):
         form.instance.author = self.request.user
         return super().form_valid(form)
     
-class ContactDetailView(DetailView):
+class ContactDetailView(TemplateView):
     model = Contact
     template_name = 'contact/contact-detail.html'
 
-    def get_object(self, querset=None):
-        return get_object_or_404(Contact, slug=self.kwargs.get('slug'))
+
+    # def get_object(self, querset=None):
+    #     return get_object_or_404(Contact, slug=self.kwargs.get('slug'))
     
-    def get(self, request, *args, **kwargs):
-        contact = self.get_object()
-        Contact.objects.filter(slug=contact.slug)
-        return super().get(request, *args, **kwargs)
+    # def get(self, request, *args, **kwargs):
+    #     contact = self.get_object()
+    #     Contact.objects.filter(slug=contact.slug)
+    #     return super().get(request, *args, **kwargs)
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['user'] = self.request.user
+        context['contacts'] = Contact.objects.all()
         return context
     
 class ContactUpdateView(UpdateView):

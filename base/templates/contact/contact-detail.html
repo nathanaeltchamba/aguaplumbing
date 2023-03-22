@@ -4,19 +4,22 @@
 
 <div class="container">
     <div class="row mt-5">
-        <div class="col-md-7 offset-2">
-            <div class="service-box h-100">
-                <i class="fa fa-wrench"></i>
-                <h3>{{contact.title}}</h3>
-                <p>{{contact.content}}</p>
+        <div class="col-md-12">
+            <div class="card h-100">
+                <div class="card-body">
+                    {% for contact in contacts %}
+                    <h3>{{contact.title}}</h3>
+                    <p>Email: {{contact.email}}</p>
+                    <p>Address: {{contact.address}}</p>
+                    <p>Phone Number: {{contact.phone_number}}</p>
+                    <p>Business Hours: {{contact.business_hours}}</p>
+                    <p>Service Area: {{contact.service_area}}</p>
+                    <p>{{contact.content}}</p>
+                    {% endfor %}
+                </div>
             </div>
             <div class="tools">
             </div>
-        </div>
-        <div class="col-md-3">
-            <a href="{% url 'contact-update' contact.slug %}" class="btn btn-dark">Update</a>
-            <a href="{% url 'contact-delete' contact.slug %}" class="btn btn-danger">Delete</a>
-            <a class="btn btn-dark" href="/">Home</a>
         </div>
     </div>
 </div>

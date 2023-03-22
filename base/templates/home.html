@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% load static %}
+{% load crispy_forms_tags %}
 
 {% block content %}
 
@@ -19,7 +20,7 @@
               <h1 class="display-5 fw-bold">Welcome to Agua Plumbing</h1>
               <p class="col-md-8 fs-4">At Agua Plumbing, our mission is to provide our customers with exceptional plumbing services that meet their unique needs and exceed their expectations. 
                 We strive to build lasting relationships with our customers based on trust, reliability, and quality workmanship.</p> 
-              <button class="btn btn-secondary btn-lg" type="button">Contact Us</button>
+              <a href="{% url 'contact-detail' %}" class="btn btn-secondary btn-lg">Contact Us</a>
             </div>
         </div>
     </div>
@@ -28,7 +29,16 @@
 
     </section>
     <section class="contact">
-
+        <div class="container-fluid">
+            <div class="inquiry-form">
+                {% for inqury in inquiry_form %}
+                <form action="" method="post">
+                    {% csrf_token %}
+                    {{ form|crispy}}
+                </form>
+                {% endfor %}
+            </div>
+        </div>
     </section>
     <section id="services">
         <div class="container">
