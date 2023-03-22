@@ -48,7 +48,7 @@ class Contact(models.Model):
     address = models.CharField(max_length=255)
     email = models.CharField(max_length=255)
     phone_number = models.CharField(max_length=50)
-    business_hours = models.CharField(max_length=150, default='Mon-Friday')
+    business_hours = models.TextField()
     service_area = models.CharField(max_length=150, default='Denver Metropolitan Area')
     content = models.TextField(blank=True, null=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)

@@ -15,7 +15,7 @@ urlpatterns = [
     # Detail Paths
     path('menu/<slug:slug>/', MenuDetailView.as_view(), name='menu-detail'),
     path('service/<slug:slug>/', ServiceDetailView.as_view(), name='service-detail'),
-    # path('contact/<slug:slug>/', ContactDetailView.as_view(), name='contact-detail'),
+    path('contact/<slug:slug>/', ContactDetailView.as_view(), name='contact-info'),
     # Update Paths
     path('menu/<slug:slug>/update/', MenuUpdateView.as_view(), name='menu-update'),
     path('service/<slug:slug>/update/', ServiceUpdateView.as_view(), name='service-update'),

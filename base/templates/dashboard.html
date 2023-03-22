@@ -61,6 +61,8 @@
         <div class="col-md-7">
 
             <section class="menu mt-4">
+                <h1 class="fw-lighter">Menu's</h1>
+                <hr>
                 <div class="row row-cols-1 row-cols-md-3 g-4">
                     {% for menu in menulist %}
                     <div class="col">
@@ -87,6 +89,8 @@
                 </div>
             </section>
             <section class="service mt-4">
+                <h1 class="fw-lighter">Services</h1>
+                <hr>
                 <div class="row row-cols-1 row-cols-md-3 g-4">
                     {% for service in services %}
                     <div class="col">
@@ -107,6 +111,62 @@
                                                 href="{% url 'service-update' service.slug %}">Update
                                                 {{service.title}}</a></span>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </section>
+            <section class="service mt-4 mb-3">
+                <h1 class="fw-lighter">Contact</h1>
+                <hr>
+                <div class="row row-cols-1 row-cols-md-3 g-4 mb-4">
+                    {% for contact in contacts %}
+                    <div class="col">
+                        <div class="card project-card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">{{contact.title}} 1</h5>
+                                <p class="card-text"><i class="fa-solid fa-envelope me-2"></i>{{contact.email}} <br> <i class="fa fa-phone-square me-2" aria-hidden="true"></i> {{contact.phone_number}}</p>
+                            </div>
+                            <div class="card-footer">
+                                <div class="text-muted">
+                                    <span class="ms-1 fst-italic"><a class="text-decoration-none"
+                                            href="{% url 'contact-update' contact.slug %}">Update
+                                            {{contact.title}} 1</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% for contact in contacts %}
+                    <div class="col">
+                        <div class="card project-card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">{{contact.title}} 2</h5>
+                                <p class="card-text"><i class="fa-solid fa-clock me-2"></i>{{contact.business_hours}} <br><i class="fa-solid fa-map me-2"></i>{{contact.service_area}} <br></p>
+                            </div>
+                            <div class="card-footer">
+                                <div class="text-muted">
+                                    <span class="ms-1 fst-italic"><a class="text-decoration-none" href="{% url 'contact-update' contact.slug %}">Update
+                                            {{contact.title}} 2</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% for contact in contacts %}
+                    <div class="col">
+                        <div class="card project-card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">{{contact.title}} 2</h5>
+                                <p class="card-text"><i class="fa-solid fa-address-book me-2"></i>{{contact.address}} <br><i class="fa-solid fa-bars me-2"></i>{{contact.content|truncatechars:30}} <br></p>
+                            </div>
+                            <div class="card-footer">
+                                <div class="text-muted">
+                                    <span class="ms-1 fst-italic"><a class="text-decoration-none"
+                                            href="{% url 'contact-update' contact.slug %}">Update
+                                            {{contact.title}} 3</a></span>
                                 </div>
                             </div>
                         </div>

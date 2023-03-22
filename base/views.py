@@ -205,7 +205,7 @@ class ContactUpdateView(UpdateView):
         return super().form_valid(form)
     
     def get_success_url(self):
-        return reverse('contact-detail', kwargs={'slug': self.object.slug})
+        return reverse('dashboard')
     
 class ContactDeleteView(DeleteView):
     model = Contact
@@ -235,6 +235,7 @@ class DashboardView(LoginRequiredMixin, TemplateView):
         context['menulist'] = Menu.objects.all()
         context['aboutus'] = About.objects.first()
         context['services'] = Service.objects.all()
+        context['contacts'] = Contact.objects.all()
         return context
     
 class CreationView(LoginRequiredMixin, TemplateView):

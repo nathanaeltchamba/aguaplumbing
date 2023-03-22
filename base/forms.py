@@ -77,7 +77,7 @@ class ContactCreationForm(forms.ModelForm):
     address = forms.CharField()
     email = forms.CharField()
     phone_number = forms.CharField()
-    business_hours = forms.CharField()
+    business_hours = forms.Textarea()
     service_area = forms.CharField()
     content = forms.Textarea()
 
@@ -90,7 +90,7 @@ class ContactUpdateForm(forms.ModelForm):
     address = forms.CharField()
     email = forms.CharField()
     phone_number = forms.CharField()
-    business_hours = forms.CharField()
+    business_hours = forms.Textarea()
     service_area = forms.CharField()
     content = forms.Textarea()
 
