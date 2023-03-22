@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-7 offset-2">
+            <div class="service-box h-100">
+                <i class="fa fa-wrench"></i>
+                <h3>{{contact.title}}</h3>
+                <p>{{contact.content}}</p>
+            </div>
+            <div class="tools">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <a href="{% url 'contact-update' contact.slug %}" class="btn btn-dark">Update</a>
+            <a href="{% url 'contact-delete' contact.slug %}" class="btn btn-danger">Delete</a>
+            <a class="btn btn-dark" href="/">Home</a>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

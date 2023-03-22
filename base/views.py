@@ -4,8 +4,9 @@ from django.views.generic import TemplateView, ListView, UpdateView, DeleteView,
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView
 from django.contrib import messages
-from .forms import CustomUserCreationForm, MenuForm, EditMenuForm, ServiceForm, AboutForm, UpdateServiceForm
-from .models import Menu, User, Service, About
+from .forms import (CustomUserCreationForm, MenuForm, EditMenuForm, 
+                    ServiceForm, AboutForm, UpdateServiceForm, ContactCreationForm, ContactUpdateForm)
+from .models import Menu, User, Service, About, Contact
 
 # Create your views here.
 class Home(TemplateView):
@@ -160,8 +161,56 @@ class ServiceDeleteView(DeleteView):
     template_name = 'service/service-delete.html'
 
     def get_success_url(self):
-        return reverse('home')
+        return reverse('Home')
     
+# CONTACT CRUD VIEWS -------------------------------
+
+class AddContactView(LoginRequiredMixin, CreateView):
+    model = Contact
+    template_name = 'contact/contact-create.html'
+    success_url = reverse_lazy('Home')
+    form_class = ContactCreationForm
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+    
+class ContactDetailView(DetailView):
+    model = Contact
+    template_name = 'contact/contact-detail.html'
+
+    def get_object(self, querset=None):
+        return get_object_or_404(Contact, slug=self.kwargs.get('slug'))
+    
+    def get(self, request, *args, **kwargs):
+        contact = self.get_object()
+        Contact.objects.filter(slug=contact.slug)
+        return super().get(request, *args, **kwargs)
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['user'] = self.request.user
+        return context
+    
+class ContactUpdateView(UpdateView):
+    model = Contact
+    template_name = 'contact/contact-update.html'
+    form_class = ContactUpdateForm
+
+    def form_valid(self, form):
+        custom_user, created = User.objects.get_or_create(username=self.request.user.username)
+        form.instance.author = custom_user
+        return super().form_valid(form)
+    
+    def get_success_url(self):
+        return reverse('contact-detail', kwargs={'slug': self.object.slug})
+    
+class ContactDeleteView(DeleteView):
+    model = Contact
+    template_name = 'contact/contact-delete.html'
+
+    def get_success_url(self):
+        return reverse('Home')
 # ABOUT US CRUD VIEWS ------------------------------
 
 class AddAboutUsView(LoginRequiredMixin, CreateView):
@@ -173,6 +222,7 @@ class AddAboutUsView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
+    
     
 # MISC VIEWS -----------------------------------------
 class DashboardView(LoginRequiredMixin, TemplateView):

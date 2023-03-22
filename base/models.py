@@ -38,7 +38,23 @@ class Service(models.Model):
     card_number = models.IntegerField(validators=[MaxValueValidator(3)], default=0)
     created_at = models.DateTimeField(auto_now_add= True)
     updated_at = models.DateTimeField(auto_now=True)
-    slug = models.SlugField(unique=True, default='new-slug')
+    slug = models.SlugField(unique=True)
+
+    def __str__(self):
+        return self.title
+    
+class Contact(models.Model):
+    title = models.CharField(max_length=100)
+    address = models.CharField(max_length=255)
+    email = models.CharField(max_length=255)
+    phone_number = models.CharField(max_length=50)
+    business_hours = models.CharField(max_length=150, default='Mon-Friday')
+    service_area = models.CharField(max_length=150, default='Denver Metropolitan Area')
+    content = models.TextField(blank=True, null=True)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add= True)
+    updated_at = models.DateTimeField(auto_now=True)
+    slug = models.SlugField(unique=True)
 
     def __str__(self):
         return self.title

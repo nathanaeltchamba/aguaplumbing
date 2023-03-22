@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .models import Menu, Service, About
+from .models import Menu, Service, About, Contact
 from ckeditor.widgets import CKEditorWidget
 
 class CustomUserCreationForm(UserCreationForm):
@@ -12,6 +12,8 @@ class CustomUserCreationForm(UserCreationForm):
     class Meta:
         model = User
         fields = ('first_name', 'last_name', 'username', 'email', 'password1', 'password2')
+
+# MENU FORMS -----------------------------------------
 
 class MenuForm(forms.ModelForm):
     content = forms.CharField(widget=CKEditorWidget())
@@ -34,7 +36,8 @@ class EditMenuForm(forms.ModelForm):
             'content': forms.Textarea(attrs={'class': 'form-control'}),
             'snippet': forms.TextInput(attrs={'class': 'form-control w-75'}),
         }
-        
+
+# ABOUT FORMS -----------------------------------------        
 
 class AboutForm(forms.ModelForm):
     content = forms.CharField(widget=CKEditorWidget())
@@ -45,6 +48,8 @@ class AboutForm(forms.ModelForm):
             'title':forms.TextInput(attrs={'class':'form-control w-75'}),
             'content':forms.Textarea(attrs={'class':'form-control'}),
         }
+
+# SERVICE FORMS --------------------------------------
 
 class ServiceForm(forms.ModelForm):
     content = forms.CharField(widget=CKEditorWidget())
@@ -65,3 +70,30 @@ class UpdateServiceForm(forms.ModelForm):
             'title':forms.TextInput(attrs={'class':'form-control'}),
             'content':forms.Textarea(attrs={'class':'form-control'}),
         }
+
+# CONTACT FORMS -----------------------------------------
+class ContactCreationForm(forms.ModelForm):
+    title = forms.CharField(required=False, help_text='Optional')
+    address = forms.CharField()
+    email = forms.CharField()
+    phone_number = forms.CharField()
+    business_hours = forms.CharField()
+    service_area = forms.CharField()
+    content = forms.Textarea()
+
+    class Meta:
+        model = Contact
+        fields = ('title', 'address', 'email', 'phone_number','business_hours', 'service_area', 'content')
+
+class ContactUpdateForm(forms.ModelForm):
+    title = forms.CharField(required=False, help_text='Optional')
+    address = forms.CharField()
+    email = forms.CharField()
+    phone_number = forms.CharField()
+    business_hours = forms.CharField()
+    service_area = forms.CharField()
+    content = forms.Textarea()
+
+    class Meta:
+        model = Contact
+        fields = ('title', 'address', 'email', 'phone_number','business_hours', 'service_area', 'content')

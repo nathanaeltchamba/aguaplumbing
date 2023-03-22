@@ -5,6 +5,9 @@ body{
     background-position: center;
 }
 
+hr {
+    border-color: #a8acb0;
+}
 
 #services {
   background-color: #f8f8f8;
