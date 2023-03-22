@@ -174,7 +174,7 @@ class AddAboutUsView(LoginRequiredMixin, CreateView):
         form.instance.author = self.request.user
         return super().form_valid(form)
     
-
+# MISC VIEWS -----------------------------------------
 class DashboardView(LoginRequiredMixin, TemplateView):
     template_name = 'dashboard.html'
 
@@ -184,4 +184,7 @@ class DashboardView(LoginRequiredMixin, TemplateView):
         context['aboutus'] = About.objects.first()
         context['services'] = Service.objects.all()
         return context
+    
+class CreationView(LoginRequiredMixin, TemplateView):
+    template_name = 'create-page.html'
     

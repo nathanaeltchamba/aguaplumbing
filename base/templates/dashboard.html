@@ -2,9 +2,9 @@
 
 {% block content %}
 
-<div class="container-fluid">
-    <button class="btn btn-outline-secondary mt-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#Id1"
-        aria-controls="Id1">View Menu</button>
+<div class="container-fluid mt-3">
+    <!-- <button class="btn btn-outline-secondary mt-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#Id1"
+        aria-controls="Id1">View Menu</button> -->
 
     <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="Id1"
         aria-labelledby="Enable both scrolling & backdrop">
@@ -37,8 +37,8 @@
             <div class="row">
                 <div class="sidebar">
                     <div class="d-flex justify-content-between align-items-center mb4">
-                        <h3 class="mb-0">Dashboard</h3>
-                        <button class="btn btn-sm btn-primary"><i class="fas fa-plus"></i>New Project</button>
+                        <h3 class="mb-0">Your Dashboard</h3>
+                        <a href="{% url 'create' %}" class="btn btn-sm btn-primary"><i class="fas fa-plus"></i>New Project</a>
                     </div>
                     <ul class="nav flex-column mb-4">
                         <li class="nav-item">
@@ -46,6 +46,13 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#"><i class="fas fa-chart-line me-2"></i> Analytics</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fas fa-cog me-2"></i> Settings</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="offcanvas" data-bs-target="#Id1"
+                                aria-controls="Id1" style="cursor: pointer;"><i class="fas fa-angle-double-left me-2"></i>View Menu</a>
                         </li>
                     </ul>
                 </div>
@@ -113,41 +120,6 @@
             </section>
         </div>
     </div>
-    <button class="btn btn-primary btn-starwars">Join the Rebellion</button>
-
-    <!-- <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-2 col-md-3 sidebar">
-                <div class="d-flex justify-content-between align-items-center mb-4">
-                    <h3 class="mb-0">Dashboard</h3>
-                    <button class="btn btn-sm btn-primary"><i class="fas fa-plus"></i> New Project</button>
-                </div>
-                <ul class="nav flex-column mb-4">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#"><i class="fas fa-tachometer-alt me-2"></i> Dashboard</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-chart-line me-2"></i> Analytics</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-cog me-2"></i> Settings</a>
-                    </li>
-                </ul>
-                <h6 class="sidebar-heading mb-3">Projects</h6>
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-tasks me-2"></i> Active Projects</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-check-circle me-2"></i> Completed Projects</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-trash me-2"></i> Deleted Projects</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div> -->
 
 </div>
 

@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import (Home, CustomLoginView, DashboardView, AddMenuView, MenuListView, 
+from .views import (Home, CustomLoginView, DashboardView, CreationView, AddMenuView, MenuListView, 
                     MenuDetailView, MenuUpdateView, MenuDelete, 
                     AddServiceView, ServiceDetailView, ServiceUpdateView, ServiceDeleteView)
 
@@ -16,6 +16,7 @@ urlpatterns = [
     path('menu/<slug:slug>/delete/', MenuDelete.as_view(), name='menu-delete'),
     path('service/<slug:slug>/delete/', ServiceDeleteView.as_view(), name='service-delete'),
     path('dashboard/', DashboardView.as_view(), name='dashboard'),
+    path('create/', CreationView.as_view(), name='create'),
     path('menulist/', MenuListView.as_view(), name='menu-list'),
     path('login/', CustomLoginView.as_view(), name='login')
 ]
