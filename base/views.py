@@ -54,13 +54,18 @@ class CustomLoginView(LoginView):
         return super().form_valid(form)
 
 # MENU CRUD VIEWS --------------------------------
-class MenuListView(ListView):
+class MenuListView(LoginRequiredMixin, TemplateView):
     template_name = 'menu/menu-list.html'
-    context_object_name = 'menulists'
 
-    def get_queryset(self):
-        return Menu.objects.all()
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['menulist'] = Menu.objects.all()
+        context['aboutus'] = About.objects.first()
+        context['services'] = Service.objects.all()
+        context['contacts'] = Contact.objects.all()
+        return context
     
+
     
 class AddMenuView(LoginRequiredMixin, CreateView):
     model = Menu
@@ -101,7 +106,7 @@ class MenuUpdateView(LoginRequiredMixin, UpdateView):
         return super().form_valid(form)
     
     def get_success_url(self):
-        return reverse('menu-detail', kwargs={'slug': self.object.slug})
+        return reverse('menu-list')
     
 class MenuDelete(LoginRequiredMixin, DeleteView):
     model = Menu 

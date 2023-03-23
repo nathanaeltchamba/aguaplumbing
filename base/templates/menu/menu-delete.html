@@ -8,7 +8,7 @@
     <form action="" method="POST">
         {% csrf_token %}
         <button class="btn btn-danger" type="submit">Delete</button>
-        <a class="btn btn-primary" href="{% url 'menu-detail' menu.slug %}">Cancel</a>
+        <a class="btn btn-primary" href="{% url 'menu-list' %}">Cancel</a>
     </form>
 </div>
   
