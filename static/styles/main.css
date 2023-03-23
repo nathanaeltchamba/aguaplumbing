@@ -141,3 +141,43 @@ hr {
 }
 
 
+ body {
+            background-color: #f5f5f5;
+            font-family: "Roboto", sans-serif;
+        }
+
+        .contact-form {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-control {
+            border-radius: 0;
+            border-color: #ddd;
+        }
+
+        .form-control:focus {
+            border-color: #00b4db;
+            box-shadow: none;
+        }
+
+        .contact-form label {
+            font-weight: bold;
+        }
+
+        .contact-form textarea {
+            resize: none;
+        }
+
+        .btn-primary {
+            background-color: #00b4db;
+            border-color: #00b4db;
+            border-radius: 0;
+        }
+
+        .btn-primary:hover {
+            background-color: #008fcc;
+            border-color: #008fcc;
+        }
