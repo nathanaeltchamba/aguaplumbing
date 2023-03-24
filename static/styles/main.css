@@ -162,7 +162,7 @@ hr {
 .contact-section .contact-details ul li i {
   color: #8e44ad;
 }
-/* Hero section styling */
+/* Hero section styling For Contact Page */
 
 .hero-section {
   background-image: url("/media/images/communication.jpg");
@@ -189,9 +189,9 @@ hr {
 
 /* .img-background{
 } */
-
+/* Home Page section */
 .hero-image {
-  background-image: url('/media/images/tables.jpg');
+  background-image: url('/media/images/denver.jpg');
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -219,9 +219,10 @@ hr {
   font-size: 1.5rem;
 }
 
-/* nav{
-
-} */
+nav{
+  background-color: transparent;
+  backdrop-filter: blur(2px);
+}
 .navbar-brand {
     padding: 0.5rem 0;
 }
@@ -268,3 +269,15 @@ hr {
 .navbar.fixed-top.hide {
     transform: translateY(-100%);
 }
+
+.carousel-caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 100%;
+  color: white;
+}
+
+
