@@ -5,40 +5,40 @@
 
 {% block content %}
 
-{% if messages %}
-<div class="alert alert-success alert-dismissible fade show" role="alert">
-    {% for message in messages %}
-    <strong>{{message}}</strong> 
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    {% endfor %}
-</div>
-{% endif %}
-   
-    <div class="container">
-        <div class="p-5 my-4 bg-light-subtle rounded-3">
-            <div class="container-fluid py-5">
-              <h1 class="display-5 fw-bold">Welcome to Agua Plumbing</h1>
-              <p class="col-md-8 fs-4">At Agua Plumbing, our mission is to provide our customers with exceptional plumbing services that meet their unique needs and exceed their expectations. 
-                We strive to build lasting relationships with our customers based on trust, reliability, and quality workmanship.</p> 
-              <a href="{% url 'contact-detail' %}" class="btn btn-secondary btn-lg">Contact Us</a>
+<div class="img-background">
+    {% if messages %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {% for message in messages %}
+        <strong>{{message}}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        {% endfor %}
+    </div>
+    {% endif %}
+    
+    <!-- <div class="container">
+            <div class="p-5 my-4 bg-light-subtle rounded-3">
+                <div class="container-fluid py-5">
+                  <h1 class="display-5 fw-bold">Welcome to Agua Plumbing</h1>
+                  <p class="col-md-8 fs-4">At Agua Plumbing, our mission is to provide our customers with exceptional plumbing services that meet their unique needs and exceed their expectations. 
+                    We strive to build lasting relationships with our customers based on trust, reliability, and quality workmanship.</p> 
+                  <a href="{% url 'contact-detail' %}" class="btn btn-secondary btn-lg">Contact Us</a>
+                </div>
             </div>
+        </div> -->
+    
+    <div class="hero-image">
+        <div class="hero-text">
+            <h1 class="display-5 text-dark-stroke text-primary-shadow">Welcome to Our Agua Plumbing</h1>
+            <p>We provide quality services that meet your needs.</p>
+            <a href="#" class="btn btn-info btn-lg">Learn More</a>
         </div>
     </div>
-
+    
     <section class="about">
-
+    
     </section>
     <section class="contact">
-        <div class="container-fluid">
-            <div class="inquiry-form">
-                {% for inqury in inquiry_form %}
-                <form action="" method="post">
-                    {% csrf_token %}
-                    {{ form|crispy}}
-                </form>
-                {% endfor %}
-            </div>
-        </div>
+    
     </section>
     <section id="services">
         <div class="container">
@@ -74,9 +74,6 @@
             </div>
         </div>
     </section>
+</div>
 
-    <!-- <section class="bot">
-        <h3>Bottom Section</h3>
-    </section> -->
-  
 {% endblock content %}

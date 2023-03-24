@@ -12,21 +12,18 @@ from .models import Menu, User, Service, About, Contact
 class Home(TemplateView):
     template_name = 'home.html'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['aboutus'] = About.objects.first()
-        return context
-    
     def get(self, request):
         context = {}
 
         services_card_1 = Service.objects.filter(card_number=1)
         services_card_2 = Service.objects.filter(card_number=2)
         services_card_3 = Service.objects.filter(card_number=3)
+        contact = Contact.objects.first()
 
         context['services_card_1'] = services_card_1
         context['services_card_2'] = services_card_2
         context['services_card_3'] = services_card_3
+        context['contact'] = contact
 
         return render(request, 'home.html', context)
     
