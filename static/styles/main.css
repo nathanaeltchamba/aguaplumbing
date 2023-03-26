@@ -122,7 +122,7 @@ hr {
   margin-right: 0.5rem;
 }
 
-.contact-section form input,
+/* .contact-section form input,
 .contact-section form textarea {
   background-color: #ffffff;
   border: none;
@@ -161,11 +161,58 @@ hr {
 
 .contact-section .contact-details ul li i {
   color: #8e44ad;
+} */
+
+.contact-section {
+  background-color: #f8f9fa;
+  padding: 80px 0;
 }
+
+.contact-section form {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+}
+
+.contact-section label {
+  font-weight: 600;
+}
+
+.contact-section input,
+.contact-section textarea {
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 30px;
+}
+
+.contact-section input:focus,
+.contact-section textarea:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.contact-section button {
+  border-radius: 0;
+  width: 200px;
+}
+
+/* @media (max-width: 767px) {
+  .contact-section form {
+    padding: 20px;
+  }
+  
+  .contact-section button {
+    width: 100%;
+  }
+} */
+
+
 /* Hero section styling For Contact Page */
 
 .hero-section {
-  background-image: url("/media/images/communication.jpg");
+  background-image: url("/media/images/gradient.jpg");
   background-size: cover;
   background-position: center;
   height: 400px;
@@ -187,42 +234,6 @@ hr {
   text-shadow: 1px 1px #000000;
 }
 
-/* .img-background{
-} */
-/* Home Page section */
-.hero-image {
-  background-image: url('/media/images/denver.jpg');
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.hero-text {
-  text-align: center;
-  color: #f8efef;
-}
-
-.hero-text h1 {
-  font-size: 4rem;
-  margin-bottom: 2rem;
-}
-
-.hero-text p {
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
-}
-
-.hero-text a {
-  font-size: 1.5rem;
-}
-
-nav{
-  background-color: transparent;
-  backdrop-filter: blur(2px);
-}
 .navbar-brand {
     padding: 0.5rem 0;
 }
@@ -270,14 +281,106 @@ nav{
     transform: translateY(-100%);
 }
 
-.carousel-caption {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  width: 100%;
+/* Home Page section */
+.home-hero-section {
+  background-image: url('/media/images/lightblue.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 80vh;
+  display: flex;
+  align-items: center;
   color: white;
 }
 
+.home-hero-section h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  color: #fff;
+}
 
+.home-hero-section p {
+  font-size: 24px;
+  margin-bottom: 30px;
+  color: #fff;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+
+
+
+/* Footer css */
+.footer {
+  padding: 60px 0;
+  color: #636363;
+}
+
+.footer h3,
+.footer h4 {
+  color: #003f7f;
+}
+
+.footer ul {
+  padding: 0;
+  list-style: none;
+}
+
+.footer ul li a {
+  color: #636363;
+}
+
+.footer ul li a:hover {
+  color: #003f7f;
+  text-decoration: none;
+}
+
+.footer i {
+  color: #636363;
+  margin-right: 10px;
+}
+
+@media (max-width: 767px) {
+  .footer {
+    padding: 30px 0;
+  }
+}
+
+/* About Us Section */
+
+.about-section {
+  padding: 80px 0;
+}
+
+.about-section h2 {
+  margin-bottom: 30px;
+  color: #003f7f;
+}
+
+.about-section p {
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.about-section img {
+  margin-top: 30px;
+}
+
+@media (max-width: 767px) {
+  .about-section {
+    padding: 60px 0;
+  }
+
+  .about-section img {
+    margin-top: 0;
+  }
+}
+
+/* Contracts portion */
