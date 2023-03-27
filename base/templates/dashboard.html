@@ -1,32 +1,114 @@
 {% extends "base.html" %}
 
+{% block navbar %}
+{% endblock navbar %}
+
+
 {% block content %}
 
-<div class="container mt-3">
-    
-    <div class="d-flex justify-content-between">
-        <h2 class="fw-light">My Dashboard</h2>
+<div class="row">
+    <div class="col-md-4">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <a class="text-decoration-none text-white" href="{% url 'dashboard' %}"><h3>Dashboard</h3></a>
+            </div>
+            <ul class="list-unstyled components">
+                <li class="active">
+                    <a href="#homeSubmenu" data-bs-toggle="collapse" aria-expanded="false"
+                        class="dropdown-toggle">Manage Website</a>
+                    <ul class="collapse show" id="homeSubmenu">
+                        <li><a href="{% url 'about-list' %}">About Us</a></li>
+                        <li><a href="{% url 'contact-list' %}">Contact</a></li>
+                        <li><a href="{% url 'service-list' %}">Services</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#pageSubmenu" data-bs-toggle="collapse" aria-expanded="false"
+                        class="dropdown-toggle">Account Management</a>
+                    <ul class="collapse" id="pageSubmenu">
+                        <li><a href="#">Logout</a></li>
+                        <li><a href="#">Change Password</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="{% url 'Home' %}">Home <i class="fa-solid fa-home ms-2"></i></a>
+                </li>
+                <li>
+                    <a href="#">Tables</a>
+                </li>
+                <li>
+                    <a href="#">Forms</a>
+                </li>
+            </ul>
+        </div>
     </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card my-3">
-                    <div class="row mt-4 bg-light">
-                        <div class="col-md-4">
-                            <div class="card-body h-100">
-                                <a class="text-decoration-none" href="{% url 'menu-list' %}">
-                                    <h5 class="card-title">View Your Published Posts</h5>
-                                </a>
-                                <a href="{% url 'menu-list' %}"><img class="img-fluid" src="/media/images/posts.png"
-                                        width="150px" height="75px" alt="post image"></a>
-                            </div>
+    <div class="col-md-8">
+        <div class="container-fluid">
+            <div class="">
+                <h4 class="fw-light mt-4">Default</h4>
+                <h6 class="text-secondary">Home - Dashboards</h6>
+            </div>
+            <div class="card mb-2">
+                <div class="card-body h-100">
+                    <a class="text-decoration-none" href="{% url 'menu-list' %}">
+                        <div class="d-flex justify-content-between">
+                            <h5 class="card-title">View Your Published Posts</h5>
+                            <a class="text-decoration-none btn btn-outline-primary" href="{% url 'menu-list' %}">Posts</a>
+                        </div>
+                    </a>
+                    
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <a class="text-decoration-none" href="#">
+                                <h5 class="card-title">Contact Us</h5>
+                            </a>
+                            <a href="#">
+                                <img class="img-fluid" src="/media/images/dash1.png" width="220px" height="150px"
+                                    alt="contact us image">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <a class="text-decoration-none" href="#">
+                                <h5 class="card-title">About Us</h5>
+                            </a>
+                            <a href="#">
+                                <img class="img-fluid" src="/media/images/dash2.png" width="220px" height="150px"
+                                    alt="about us image">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <a class="text-decoration-none" href="#">
+                                <h5 class="card-title">Services</h5>
+                            </a>
+                            <a href="#">
+                                <img class="img-fluid" src="/media/images/dash.png" width="220px" height="150px"
+                                    alt="services image">
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
 </div>
+</div>
 
+{% block footer %}
+
+{% endblock footer %}
 
 
 {% endblock content %}

@@ -40,14 +40,20 @@ class EditMenuForm(forms.ModelForm):
 # ABOUT FORMS -----------------------------------------        
 
 class AboutForm(forms.ModelForm):
-    content = forms.CharField(widget=CKEditorWidget())
+    title = forms.CharField(required=False, help_text='Optional')
+    content = forms.Textarea()
+
     class Meta:
         model = About
-        fields = ['title', 'content']
-        widgets = {
-            'title':forms.TextInput(attrs={'class':'form-control w-75'}),
-            'content':forms.Textarea(attrs={'class':'form-control'}),
-        }
+        fields = ('title', 'content')
+
+class AboutUpdateForm(forms.ModelForm):
+    title = forms.CharField(required=False, help_text='Optional')
+    content = forms.Textarea()
+
+    class Meta:
+        model = About
+        fields = ('title', 'content')
 
 # SERVICE FORMS --------------------------------------
 

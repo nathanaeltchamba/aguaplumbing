@@ -2,23 +2,159 @@
 
 {% block content %}
 
-<div class="container">
-    <div class="row mt-5">
-        <div class="col-md-7 offset-2">
-            <div class="service-box h-100">
-                <i class="fa fa-wrench"></i>
-                <h3>{{service.title}}</h3>
-                <p>{{service.content|safe}}</p>
-            </div>
-            <div class="tools">
+<!-- <section class="section services-section bg-white">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 text-center">
+                <h2 class="section-title mb-4">Our Services</h2>
+                <p class="section-subtitle">We offer a wide range of plumbing services to meet your needs.</p>
             </div>
         </div>
-        <div class="col-md-3">
-            <a href="{% url 'service-update' service.slug %}" class="btn btn-dark">Update</a>
-            <a href="{% url 'service-delete' service.slug %}" class="btn btn-danger">Delete</a>
-            <a class="btn btn-dark" href="/">Home</a>
+        <div class="row mt-5">
+            <div class="col-md-4 mb-5">
+                <div class="card shadow border-0">
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <i class="bi bi-pipe text-primary fs-2"></i>
+                        </div>
+                        <h3 class="card-title">Pipe Repair</h3>
+                        <p class="card-text">Our expert plumbers can repair any type of pipe, whether it's a small leak
+                            or a major burst.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-5">
+                <div class="card shadow border-0">
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <i class="bi bi-shower text-primary fs-2"></i>
+                        </div>
+                        <h3 class="card-title">Bathroom Plumbing</h3>
+                        <p class="card-text">We offer complete bathroom plumbing services, including toilet repair, sink
+                            installation, and shower installation.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-5">
+                <div class="card shadow border-0">
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <i class="bi bi-wrench text-primary fs-2"></i>
+                        </div>
+                        <h3 class="card-title">Emergency Services</h3>
+                        <p class="card-text">We offer emergency plumbing services 24 hours a day, 7 days a week, to help
+                            you when you need it most.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-5">
+                <div class="card shadow border-0">
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <i class="bi bi-tools text-primary fs-2"></i>
+                        </div>
+                        <h3 class="card-title">Plumbing Installation</h3>
+                        <p class="card-text">We can install new plumbing fixtures, water heaters, and other equipment to
+                            meet your needs.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-5">
+                <div class="card shadow border-0">
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <i class="bi bi-pump text-primary fs-2"></i>
+                        </div>
+                        <h3 class="card-title">Water Pump Repair</h3>
+                        <p class="card-text">Our plumbers can repair or replace any type of water pump, including
+                            submersible pumps and jet pumps.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-5">
+                <div class="card shadow border-0">
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <i class="bi bi-pump text-primary fs-2"></i>
+                        </div>
+                        <h3 class="card-title">Water Pump Repair</h3>
+                        <p class="card-text">Our plumbers can repair or replace any type of water pump, including
+                            submersible pumps and jet pumps.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
+
+<section class="services-section">
+    <div class="">
+        <!-- <div class="row">
+            <div class="col-md-6 mb-5 mb-lg-0">
+                <div class="service-text">
+                    <h2 class="section-title mb-4">Plumbing Services</h2>
+                    <p class="section-subtitle mb-4">We offer a wide range of plumbing services for both residential and
+                        commercial customers. Whether you need a leaky faucet fixed or a complete plumbing overhaul,
+                        we've got you covered.</p>
+                    <ul class="service-list mb-4">
+                        <li>Drain Cleaning</li>
+                        <li>Water Heater Repair</li>
+                        <li>Bathroom Remodeling</li>
+                        <li>Kitchen Plumbing</li>
+                        <li>Water Filtration Systems</li>
+                        <li>Emergency Plumbing Services</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">Learn More</a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="service-image">
+                    <img src="/media/images/faucet.jpg" alt="Service Image" width="350px" height="170px" class="img-fluid rounded-5">
+                </div>
+            </div>
+        </div> -->
+        <section class="hero-section-service">
+            <div class="hero-container-service">
+                <h1 class="hero-heading-service">Our Services</h1>
+                <!-- <p class="section-subtitle mb-4">We offer a wide range of plumbing services for both residential and
+                    commercial customers. Whether you need a leaky faucet fixed or a complete plumbing overhaul,
+                    we've got you covered.</p> -->
+            </div>
+        </section>
+    </div>
+</section>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 mb-5 mb-lg-0">
+            <div class="service-text">
+                <div class="project-card mt-3 ">
+                    <div class="p-4 h-100">
+                        <h2 class="section-title mb-4">Plumbing Services</h2>
+                        <p class="section-subtitle mb-4">We offer a wide range of plumbing services for both residential and
+                            commercial customers. Whether you need a leaky faucet fixed or a complete plumbing overhaul, we've got
+                            you covered.</p>
+                        <ul class="list-unstyled service-list mb-4">
+                            <li>Drain Cleaning</li>
+                            <li>Water Heater Repair</li>
+                            <li>Bathroom Remodeling</li>
+                            <li>Kitchen Plumbing</li>
+                            <li>Water Filtration Systems</li>
+                            <li>Emergency Plumbing Services</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="service-image">
+                <div class="project-card mt-3">
+                    <img src="/media/images/business.jpg" alt="Service Image" class="h-100 img-fluid rounded-4">
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
 
 {% endblock content %}

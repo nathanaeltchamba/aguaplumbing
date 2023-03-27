@@ -5,7 +5,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView
 from django.contrib import messages
 from .forms import (CustomUserCreationForm, InquiryForm, MenuForm, EditMenuForm, 
-                    ServiceForm, AboutForm, UpdateServiceForm, ContactCreationForm, ContactUpdateForm)
+                    ServiceForm, AboutForm, AboutUpdateForm, UpdateServiceForm, ContactCreationForm, ContactUpdateForm)
 from .models import Menu, User, Service, About, Contact
 
 # Create your views here.
@@ -128,17 +128,20 @@ class AddServiceView(LoginRequiredMixin, CreateView):
             return self.form_invalid(form)
         return super().form_valid(form)
     
-class ServiceDetailView(DetailView):
+class ServiceList(LoginRequiredMixin, ListView):
+    model = Service
+    template_name = 'service/service-list.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['aboutus'] = About.objects.first()
+        context['services'] = Service.objects.all()
+        context['contacts'] = Contact.objects.all()
+        return context
+
+class ServiceDetailView(TemplateView):
     model = Service
     template_name = 'service/service-detail.html'
-
-    def get_object(self, querset=None):
-        return get_object_or_404(Service, slug=self.kwargs.get('slug'))
-    
-    def get(self, request, *args, **kwargs):
-        menu = self.get_object()
-        Service.objects.filter(slug=menu.slug)
-        return super().get(request, *args, **kwargs)
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -156,7 +159,7 @@ class ServiceUpdateView(UpdateView):
         return super().form_valid(form)
     
     def get_success_url(self):
-        return reverse('service-detail', kwargs={'slug': self.object.slug})
+        return reverse('menu-list')
     
 class ServiceDeleteView(DeleteView):
     model = Service
@@ -177,19 +180,19 @@ class AddContactView(LoginRequiredMixin, CreateView):
         form.instance.author = self.request.user
         return super().form_valid(form)
     
+class ContactList(LoginRequiredMixin, ListView):
+    model = Contact
+    template_name = 'contact/contact-list.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['contacts'] = Contact.objects.all()
+        return context
+    
 class ContactDetailView(TemplateView):
     model = Contact
     template_name = 'contact/contact-detail.html'
 
-
-    # def get_object(self, querset=None):
-    #     return get_object_or_404(Contact, slug=self.kwargs.get('slug'))
-    
-    # def get(self, request, *args, **kwargs):
-    #     contact = self.get_object()
-    #     Contact.objects.filter(slug=contact.slug)
-    #     return super().get(request, *args, **kwargs)
-    
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['user'] = self.request.user
@@ -218,15 +221,52 @@ class ContactDeleteView(DeleteView):
 # ABOUT US CRUD VIEWS ------------------------------
 
 class AddAboutUsView(LoginRequiredMixin, CreateView):
-    model = Service
-    template_name = 'aboutus-create.html'
-    success_url = reverse_lazy('Home')
-    form_class = ServiceForm
+    model = About
+    template_name = 'about/aboutus-create.html'
+    success_url = reverse_lazy('dashboard')
+    form_class = AboutForm
 
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
     
+class AboutList(LoginRequiredMixin, ListView):
+    model = About
+    template_name = 'about/about-list.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['aboutus'] = About.objects.all()
+        return context
+    
+class AboutDetailView(TemplateView):
+    model = About
+    template_name = 'about/about-detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['user'] = self.request.user
+        context['aboutus'] = About.objects.all()
+        return context
+    
+class AboutUpdateView(LoginRequiredMixin, UpdateView):
+    model = About
+    template_name = 'about/about-update.html'
+    form_class = AboutUpdateForm
+
+    def form_valid(self, form):
+        custom_user, created = User.objects.get_or_create(username=self.request.user.username)
+        form.instance.author = custom_user
+        return super().form_valid(form)
+    
+    def get_success_url(self):
+        return reverse('dashboard')
+    
+class AboutDeleteView(LoginRequiredMixin, DeleteView):
+    model = About
+    template_name = 'about/about-delete.html'
+    success_url = reverse_lazy('dashboard')
+
     
 # MISC VIEWS -----------------------------------------
 class DashboardView(LoginRequiredMixin, TemplateView):

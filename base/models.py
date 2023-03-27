@@ -22,7 +22,7 @@ class Menu(models.Model):
     
 class About(models.Model):
     title = models.CharField(max_length=100)
-    content = RichTextUploadingField(blank=True, null=True)
+    content = models.TextField(blank=True, null=True)
     author = models.ForeignKey(User, on_delete= models.CASCADE)
     created_at = models.DateTimeField(auto_now_add= True)
     updated_at = models.DateTimeField(auto_now=True)

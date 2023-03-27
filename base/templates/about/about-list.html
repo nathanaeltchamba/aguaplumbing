@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+
+{% block navbar %}
+{% endblock navbar %}
+
+{% block content %}
+
+<div class="row">
+    <!-- SIDEBAR -->
+    <div class="col-md-4">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <a class="text-decoration-none text-white" href="{% url 'dashboard' %}">
+                    <h3>Dashboard</h3>
+                </a>
+
+            </div>
+            <ul class="list-unstyled components">
+                <li class="active">
+                    <a href="#homeSubmenu" data-bs-toggle="collapse" aria-expanded="false"
+                        class="dropdown-toggle">Manage Website</a>
+                    <ul class="collapse show" id="homeSubmenu">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Services</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#pageSubmenu" data-bs-toggle="collapse" aria-expanded="false"
+                        class="dropdown-toggle">Account
+                        Management</a>
+                    <ul class="collapse" id="pageSubmenu">
+                        <li><a href="#">Reset Password</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Charts</a>
+                </li>
+                <li>
+                    <a href="#">Tables</a>
+                </li>
+                <li>
+                    <a href="#">Forms</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- POSTS GO UNDERNEATH HERE -->
+    <div class="col-md-8">
+        <div class="container">
+            <br>
+            <br>
+            <section class="menu">
+                <div class="d-flex justify-content-between">
+                    <h1 class="fw-light">About</h1>
+                    <a class="btn text-primary rounded-5 pt-3" href="{% url 'create-about' %}"><i
+                            class="fa-solid fa-plus me-2"></i>Create New</a>
+                </div>
+                <hr>
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    {% for about in aboutus %}
+                    <div class="col">
+                        <div class="card project-card h-100">
+                            <div class="card-body">
+                                <a class="text-decoration-none" href="{% url 'about-update' about.slug %}">
+                                    <h5 class="card-title">{{about.title}}</h5>
+                                </a>
+                                <p class="card-text">{{about.content}}</p>
+                            </div>
+                            <div class="card-footer bg-white">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="text-muted">
+                                        <div class="btn-group me-auto">
+                                            <button class="btn rounded-5 bg-outline-secondary" type="button"
+                                                id="triggerId" data-bs-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false">
+                                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                                            </button>
+                                            <div class="dropdown-menu dropdown-menu-start" aria-labelledby="triggerId">
+                                                <h6 class="dropdown-header">Manage Post</h6>
+                                                <a class="dropdown-item"
+                                                    href="{% url 'about-update' about.slug %}">Update</a>
+                                                <a class="dropdown-item text-danger"
+                                                    href="{% url 'about-delete' about.slug %}">Delete</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </section>
+        </div>
+
+    </div>
+</div>
+  
+{% endblock content %}
+
+{% block footer %}
+  
+{% endblock footer %}
+
