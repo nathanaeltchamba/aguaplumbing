@@ -12,24 +12,69 @@
 </ul>
 {% endif %}
   
-<div class="container mt-5">
-    <div class="row mt-5">
-        <div class="col-md-6 mx-auto mt-5">
-            <div class="card rounded-5 mt-5">
-                <div class="card-body mt-5">
-                    <h4 class="card-title mb-4">Log in to your account</h4>
-                    <form method="post">
+{% load crispy_forms_tags %}
+
+
+
+<div class="container-fluid bg-login">
+    <div class="row justify-content-center align-items-center h-100">
+        <div class="col-md-6 col-lg-5 col-xl-4">
+            <div class="card shadow rounded-5">
+                <div class="card-body p-5">
+                    <h3 class="text-center mb-5">Sign In</h3>
+                    <form>
                         {% csrf_token %}
-                        {{ form | crispy }}
-                        <button class="btn btn-outline-primary w-100 mt-3 mb-5" type="submit">Login</button>
+                        {{form | crispy }}
+                        <button type="submit" class="btn btn-primary w-100">Sign In</button>
                     </form>
+                    <hr class="my-4">
+                    <div class="text-center">
+                        <p class="mb-0">Don't have an account yet?</p>
+                        <a href="{% url 'signup' %}" class="text-primary">Sign Up</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-{% block footer %}
-{% endblock footer %}
+<style>
+.bg-login {
+  /* background-image: url(https://picsum.photos/1920/1080); */
+  background-image: url('/media/images/mountains1.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
 
+.card {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.form-control {
+  border: none;
+  border-radius: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #495057;
+  font-size: 1.2rem;
+  padding: 15px 20px;
+}
+
+.btn-primary {
+  background-color: #1e73be;
+  border-color: #1e73be;
+  border-radius: 0;
+}
+
+.btn-primary:hover {
+  background-color: #1862a9;
+  border-color: #1862a9;
+}
+
+</style>
+
+
+{% block footer %}
+  
+{% endblock footer %}
 {% endblock content %}

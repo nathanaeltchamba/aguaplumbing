@@ -1,8 +1,27 @@
 {% extends "base.html" %}
 
+{% block navbar %}
+{% endblock navbar %}
 {% block content %}
 
+<!-- <div class="container">
+    <h3 class="mt-5">Delete "{{ object.title }}"</h3>
+    <p>Are you sure you want to go forward with this? It cannot be undone.</p>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <button class="btn btn-danger" type="submit">Delete</button>
+        <a class="btn btn-primary" href="{% url 'menu-list' %}">Cancel</a>
+    </form>
+</div> -->
+
 <div class="container">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'Home' %}">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'Home' %}">Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Delete "{{ object.title }}"</li>
+        </ol>
+    </nav>
     <h3 class="mt-5">Delete "{{ object.title }}"</h3>
     <p>Are you sure you want to go forward with this? It cannot be undone.</p>
     <form action="" method="POST">
@@ -11,5 +30,9 @@
         <a class="btn btn-primary" href="{% url 'menu-list' %}">Cancel</a>
     </form>
 </div>
+
+
+{% block footer %}
+{% endblock footer %}
 
 {% endblock content %}

@@ -57,7 +57,7 @@ class MenuListView(LoginRequiredMixin, TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['menulist'] = Menu.objects.all()
-        context['aboutus'] = About.objects.first()
+        context['aboutus'] = About.objects.all()
         context['services'] = Service.objects.all()
         context['contacts'] = Contact.objects.all()
         return context

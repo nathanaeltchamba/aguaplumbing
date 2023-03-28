@@ -8,43 +8,48 @@
 <div class="row">
     <!-- SIDEBAR -->
     <div class="col-md-4">
-        <div class="col-md-4">
-            <div class="sidebar">
-                <div class="sidebar-header">
-                    <a class="text-decoration-none text-white" href="{% url 'dashboard' %}">
-                        <h3>Dashboard</h3>
-                    </a>
-                </div>
-                <ul class="list-unstyled components">
-                    <li>
-                        <a href="{% url 'Home' %}">Home <i class="fa-solid fa-home ms-2"></i></a>
-                    </li>
-                    <li class="active">
-                        <a href="#homeSubmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Manage
-                            Website</a>
-                        <ul class="collapse show" id="homeSubmenu">
-                            <li><a href="{% url 'about-list' %}">About Us</a></li>
-                            <li><a href="{% url 'contact-list' %}">Contact</a></li>
-                            <li><a href="{% url 'service-list' %}">Services</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#pageSubmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Account
-                            Management</a>
-                        <ul class="collapse" id="pageSubmenu">
-                            <li><a href="{% url 'logout' %}">Logout</a></li>
-                            <li><a href="#">Change Password</a></li>
-                        </ul>
-                    </li>
-                </ul>
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <a class="text-decoration-none text-white" href="{% url 'dashboard' %}">
+                    <h3>Dashboard</h3>
+                </a>
             </div>
+            <ul class="list-unstyled components">
+                <li>
+                    <a href="{% url 'Home' %}">Home <i class="fa-solid fa-home ms-2"></i></a>
+                </li>
+                <li>
+                    <a href="{% url 'dashboard' %}">Dashboard <i class="fa-solid fa-chart-line ms-2"></i></a>
+                </li>
+                <li class="active">
+                    <a href="#homeSubmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Manage
+                        Website</a>
+                    <ul class="collapse show" id="homeSubmenu">
+                        <li><a href="{% url 'about-list' %}">About Us</a></li>
+                        <li><a href="{% url 'contact-list' %}">Contact</a></li>
+                        <li><a href="{% url 'service-list' %}">Services</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#pageSubmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Account
+                        Management</a>
+                    <ul class="collapse" id="pageSubmenu">
+                        <li><a href="{% url 'logout' %}">Logout</a></li>
+                        <li><a href="#">Change Password</a></li>
+                    </ul>
+                </li>
+            </ul>
         </div>
     </div>
     <!-- POSTS GO UNDERNEATH HERE -->
     <div class="col-md-8">
         <div class="container">
-            <br>
-            <br>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Service</li>
+                </ol>
+            </nav>
             <section class="menu">
                 <div class="d-flex justify-content-between">
                     <h1 class="fw-light">Service</h1>
