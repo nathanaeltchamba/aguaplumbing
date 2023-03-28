@@ -8,41 +8,36 @@
 <div class="row">
     <!-- SIDEBAR -->
     <div class="col-md-4">
-        <div class="sidebar">
-            <div class="sidebar-header">
-                <a class="text-decoration-none text-white" href="{% url 'dashboard' %}">
-                    <h3>Dashboard</h3>
-                </a>
-
+        <div class="col-md-4">
+            <div class="sidebar">
+                <div class="sidebar-header">
+                    <a class="text-decoration-none text-white" href="{% url 'dashboard' %}">
+                        <h3>Dashboard</h3>
+                    </a>
+                </div>
+                <ul class="list-unstyled components">
+                    <li>
+                        <a href="{% url 'Home' %}">Home <i class="fa-solid fa-home ms-2"></i></a>
+                    </li>
+                    <li class="active">
+                        <a href="#homeSubmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Manage
+                            Website</a>
+                        <ul class="collapse show" id="homeSubmenu">
+                            <li><a href="{% url 'about-list' %}">About Us</a></li>
+                            <li><a href="{% url 'contact-list' %}">Contact</a></li>
+                            <li><a href="{% url 'service-list' %}">Services</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#pageSubmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Account
+                            Management</a>
+                        <ul class="collapse" id="pageSubmenu">
+                            <li><a href="{% url 'logout' %}">Logout</a></li>
+                            <li><a href="#">Change Password</a></li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
-            <ul class="list-unstyled components">
-                <li class="active">
-                    <a href="#homeSubmenu" data-bs-toggle="collapse" aria-expanded="false"
-                        class="dropdown-toggle">Manage Website</a>
-                    <ul class="collapse show" id="homeSubmenu">
-                        <li><a href="{% url 'about-list' %}">About Us</a></li>
-                        <li><a href="{% url 'contact-list' %}">Contact</a></li>
-                        <li><a href="{% url 'service-list' %}">Services</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#pageSubmenu" data-bs-toggle="collapse" aria-expanded="false"
-                        class="dropdown-toggle">Account
-                        Management</a>
-                    <ul class="collapse" id="pageSubmenu">
-                        <li><a href="#">Reset Password</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">Charts</a>
-                </li>
-                <li>
-                    <a href="#">Tables</a>
-                </li>
-                <li>
-                    <a href="#">Forms</a>
-                </li>
-            </ul>
         </div>
     </div>
     <!-- POSTS GO UNDERNEATH HERE -->

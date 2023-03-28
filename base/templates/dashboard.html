@@ -13,6 +13,9 @@
                 <a class="text-decoration-none text-white" href="{% url 'dashboard' %}"><h3>Dashboard</h3></a>
             </div>
             <ul class="list-unstyled components">
+                <li>
+                    <a href="{% url 'Home' %}">Home <i class="fa-solid fa-home ms-2"></i></a>
+                </li>
                 <li class="active">
                     <a href="#homeSubmenu" data-bs-toggle="collapse" aria-expanded="false"
                         class="dropdown-toggle">Manage Website</a>
@@ -26,18 +29,9 @@
                     <a href="#pageSubmenu" data-bs-toggle="collapse" aria-expanded="false"
                         class="dropdown-toggle">Account Management</a>
                     <ul class="collapse" id="pageSubmenu">
-                        <li><a href="#">Logout</a></li>
+                        <li><a href="{% url 'logout' %}">Logout</a></li>
                         <li><a href="#">Change Password</a></li>
                     </ul>
-                </li>
-                <li>
-                    <a href="{% url 'Home' %}">Home <i class="fa-solid fa-home ms-2"></i></a>
-                </li>
-                <li>
-                    <a href="#">Tables</a>
-                </li>
-                <li>
-                    <a href="#">Forms</a>
                 </li>
             </ul>
         </div>

@@ -13,7 +13,7 @@
                     <a class="nav-link {% if request.resolver_match.url_name == 'Home' %}active{% endif %}" href="{% url 'Home' %}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">About Us</a>
+                    <a class="nav-link" href="{% url 'about-detail' %}">About Us</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {% if request.resolver_match.url_name == 'service-detail' %}active{% endif %}"
