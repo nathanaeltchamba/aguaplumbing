@@ -6,23 +6,43 @@
 
 {% load crispy_forms_tags %}
 
+{% block navbar %}
+{% endblock navbar %}
+
 {% block content %}
 
 <div class="container">
     <div class="mt-3">
-        <h1>Update Menu</h1>
-        <hr>
-        <div class="card ">
-            <div class="card-body p-5 bg-light">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'Home' %}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'menu-list' %}">Menu</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Update Menu Card</li>
+            </ol>
+        </nav>
+
+        <div class="card">
+            <div class="card-header">
+                <h2>Update Menu Card</h2>
+            </div>
+            <div class="card-body">
                 <form action="" method="post">
                     {% csrf_token %}
                     {{ form.as_p }}
                     {{ form.media }}
-                    <button class="btn btn-dark" type="submit" value="Submit">Update</button>
+
+                    <div class="form-group mt-4">
+                        <button class="btn btn-primary" type="submit">Publish</button>
+                        <a href="javascript:history.back()" class="btn btn-outline-secondary">Cancel</a>
+                    </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
-  
+
+
 {% endblock content %}
+
+{% block footer %}
+{% endblock footer %}
