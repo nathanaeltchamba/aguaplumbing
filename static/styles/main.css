@@ -3,7 +3,7 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    font-family: 'Rubik', sans-serif, 'Spartan', sans-serif, 'Reenie Beanie', cursive;
+    font-family: 'Quicksand', sans-serif;
 }
 
 hr {
@@ -53,7 +53,7 @@ hr {
 }
 
 .card-body {
-  background-color: #f8f9fa;
+  background-color: transparent;
 }
 
 .card-title {
@@ -179,6 +179,8 @@ hr {
   text-shadow: 1px 1px #000000;
 }
 
+/* ---NAV BAR--- */
+
 .navbar-brand {
     padding: 0.5rem 0;
 }
@@ -225,6 +227,11 @@ hr {
 .navbar.fixed-top.hide {
     transform: translateY(-100%);
 }
+
+.dropdown-menu {
+    background-color: #fff; /* add your preferred background color */
+}
+
 
 /* Home Page section */
 .home-hero-section {
