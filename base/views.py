@@ -1,9 +1,10 @@
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse_lazy, reverse
-from django.views.generic import TemplateView, ListView, UpdateView, DeleteView, DetailView, CreateView
+from django.views.generic import TemplateView, ListView, UpdateView, DeleteView, DetailView, CreateView, FormView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView
 from django.contrib import messages
+from django.core.mail import send_mail
 from .forms import (CustomUserCreationForm, InquiryForm, MenuForm, EditMenuForm, 
                     ServiceForm, AboutForm, AboutUpdateForm, UpdateServiceForm, ContactCreationForm, ContactUpdateForm)
 from .models import Menu, User, Service, About, Contact
@@ -27,8 +28,6 @@ class Home(TemplateView):
 
         return render(request, 'home.html', context)
     
-    
-
 class SignupView(CreateView):
     template_name = 'registration/signup.html'
     form_class = CustomUserCreationForm
@@ -62,8 +61,6 @@ class MenuListView(LoginRequiredMixin, TemplateView):
         context['contacts'] = Contact.objects.all()
         return context
     
-
-    
 class AddMenuView(LoginRequiredMixin, CreateView):
     model = Menu
     template_name = 'menu/menu-create.html'
@@ -73,7 +70,6 @@ class AddMenuView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
-    
 
 class MenuDetailView(DetailView):
     model = Menu
@@ -113,7 +109,6 @@ class MenuDelete(LoginRequiredMixin, DeleteView):
         return reverse('menu-list')
     
 # SERVICE CRUD VIEWS -------------------------------
-# later include individual service section update.
 
 class AddServiceView(LoginRequiredMixin, CreateView):
     model = Service
@@ -280,6 +275,25 @@ class DashboardView(LoginRequiredMixin, TemplateView):
         context['contacts'] = Contact.objects.all()
         return context
     
-class CreationView(LoginRequiredMixin, TemplateView):
-    template_name = 'create-page.html'
-    
+
+class Inquiry(FormView):
+    template_name = 'inquiry.html'
+    form_class = InquiryForm
+    success_url = reverse_lazy('contact-detail')
+
+    def form_valid(self, form):
+        # Get the cleaned form data
+        name = form.cleaned_data['name']
+        email = form.cleaned_data['email']
+        message = form.cleaned_data['message']
+
+        # Construct the email message
+        subject = f'New message from {name}'
+        body = f'{message}\n\nFrom: {name}\nEmail: {email}'
+        from_email = 'noreply@aguaplumbing.com'
+        to_email = ['natanshost@gmail.com']
+
+        # Send the email
+        send_mail(subject, body, from_email, to_email, fail_silently=False)
+
+        return super().form_valid(form)

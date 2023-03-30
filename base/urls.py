@@ -1,10 +1,11 @@
 from django.urls import path
 
-from .views import (Home, CustomLoginView, DashboardView, CreationView, 
+from .views import (Home, CustomLoginView, DashboardView, 
                     AddMenuView, MenuListView, MenuDetailView, MenuUpdateView, MenuDelete, 
                     AddServiceView, ServiceDetailView, ServiceUpdateView, ServiceDeleteView, ServiceList,
                     AddContactView, ContactDetailView, ContactUpdateView, ContactDeleteView, ContactList,
-                    AddAboutUsView, AboutDetailView, AboutUpdateView, AboutDeleteView, AboutList)
+                    AddAboutUsView, AboutDetailView, AboutUpdateView, AboutDeleteView, AboutList,
+                    Inquiry,)
 
 
 urlpatterns = [
@@ -33,9 +34,9 @@ urlpatterns = [
     path('about/<slug:slug>/delete/', AboutDeleteView.as_view(), name='about-delete'),
     # Misc Paths
     path('dashboard/', DashboardView.as_view(), name='dashboard'),
-    path('create/', CreationView.as_view(), name='create'),
     path('login/', CustomLoginView.as_view(), name='login'),
     path('contact/', ContactDetailView.as_view(), name='contact-detail'),
     path('services/', ServiceDetailView.as_view(), name='service-detail'),
     path('about/', AboutDetailView.as_view(), name='about-detail'),
+    path('inquiry/', Inquiry.as_view(), name='inquiry'),
 ]

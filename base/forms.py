@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .models import Menu, Service, About, Contact
+from .models import Menu, Service, About, Contact, Inquiry
 from ckeditor.widgets import CKEditorWidget
 
 class CustomUserCreationForm(UserCreationForm):
@@ -105,6 +105,14 @@ class ContactUpdateForm(forms.ModelForm):
         fields = ('title', 'address', 'email', 'phone_number','business_hours', 'service_area', 'content')
 
 class InquiryForm(forms.ModelForm):
-    name = forms.CharField(max_length=100)
-    email = forms.EmailField()
-    message = forms.CharField(widget=forms.Textarea)
+    class Meta:
+        model = Inquiry
+        fields = ['name', 'email', 'subject', 'message']
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['name'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Your Name'})
+        self.fields['email'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Your Email'})
+        self.fields['subject'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Subject'})
+        self.fields['message'].widget.attrs.update({'class': 'form-control', 'rows': 5, 'placeholder': 'Your Message'})
+        

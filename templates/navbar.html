@@ -14,7 +14,7 @@
                         href="{% url 'Home' %}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'about-detail' %}">About Us</a>
+                    <a class="nav-link {% if request.resolver_match.url_name == 'about-detail' %}active{% endif %}" href="{% url 'about-detail' %}">About Us</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {% if request.resolver_match.url_name == 'service-detail' %}active{% endif %}"

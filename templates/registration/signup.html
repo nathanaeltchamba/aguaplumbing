@@ -4,12 +4,12 @@
 
 {% block content %}
 
-<div class="container-fluid bg-signup mt-5">
+<div class="container-fluid bg-signup">
     <div class="row justify-content-center align-items-center h-100">
         <div class="col-md-6 col-lg-5 col-xl-4">
             <div class="text-dark">
                 <div class="card_body p-5">
-                    <h3 class="text-center mb-5">Register Your Account</h3>
+                    <h3 class="text-center my-5">Register Your Account</h3>
                     <form method="post">
                         {% csrf_token %}
                         {{form | crispy }}
@@ -18,7 +18,7 @@
                     <hr class="my-4">
                     <div class="text-center">
                         <p class="mb-0">Already have an account?</p>
-                        <a href="{% url 'login' %}" class="text-primary">Sign In Here</a>
+                        <a href="{% url 'login' %}" class="btn btn-primary">Sign In Here</a>
                     </div>
                 </div>
             </div>
@@ -30,10 +30,9 @@
 <style>
     .bg-signup {
         /* background-image: url(https://picsum.photos/1920/1080); */
-        /* background-image: url('/media/images/mountains1.jpg'); */
+        background-image: url('/media/images/login.jpg');
         background-size: cover;
         background-position: center;
-        height: 100vh;
     }
 
     .card_body {

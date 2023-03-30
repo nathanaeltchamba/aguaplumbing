@@ -57,13 +57,14 @@
                 </div>
             </div>
             <div class="row mt-4">
+                <h2 class="fw-lighter">Create A New Post</h2>
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-body">
-                            <a class="text-decoration-none" href="#">
+                            <a class="text-decoration-none" href="{% url 'create-contact' %}">
                                 <h5 class="card-title">Contact Us</h5>
                             </a>
-                            <a href="#">
+                            <a href="{% url 'create-contact' %}">
                                 <img class="img-fluid" src="/media/images/dash1.png" width="220px" height="150px"
                                     alt="contact us image">
                             </a>
@@ -73,10 +74,10 @@
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-body">
-                            <a class="text-decoration-none" href="#">
+                            <a class="text-decoration-none" href="{% url 'create-about' %}">
                                 <h5 class="card-title">About Us</h5>
                             </a>
-                            <a href="#">
+                            <a href="{% url 'create-about' %}">
                                 <img class="img-fluid" src="/media/images/dash2.png" width="220px" height="150px"
                                     alt="about us image">
                             </a>
@@ -86,10 +87,10 @@
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-body">
-                            <a class="text-decoration-none" href="#">
+                            <a class="text-decoration-none" href="{% url 'create-service' %}">
                                 <h5 class="card-title">Services</h5>
                             </a>
-                            <a href="#">
+                            <a href="{% url 'create-service' %}">
                                 <img class="img-fluid" src="/media/images/dash.png" width="220px" height="150px"
                                     alt="services image">
                             </a>

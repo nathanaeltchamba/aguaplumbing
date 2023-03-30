@@ -26,7 +26,7 @@ class About(models.Model):
     author = models.ForeignKey(User, on_delete= models.CASCADE)
     created_at = models.DateTimeField(auto_now_add= True)
     updated_at = models.DateTimeField(auto_now=True)
-    slug = models.SlugField(unique=True, default='new-slug')
+    slug = models.SlugField(unique=True)
 
     def __str__(self):
         return self.title
@@ -59,9 +59,34 @@ class Contact(models.Model):
     def __str__(self):
         return self.title
     
+class Inquiry(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    subject = models.CharField(max_length=200)
+    message = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.subject
+    
 
 def pre_save_menu_receiver(sender, instance, *args, **kwargs):
     if not instance.slug:
         instance.slug = slugify(instance.title)
 
+def pre_save_about_receiver(sender, instance, *args, **kwargs):
+    if not instance.slug:
+        instance.slug = slugify(instance.title)
+
+def pre_save_service_receiver(sender, instance, *args, **kwargs):
+    if not instance.slug:
+        instance.slug = slugify(instance.title)
+
+def pre_save_contact_receiver(sender, instance, *args, **kwargs):
+    if not instance.slug:
+        instance.slug = slugify(instance.title)
+
 pre_save.connect(pre_save_menu_receiver, sender=Menu)
+pre_save.connect(pre_save_about_receiver, sender=About)
+pre_save.connect(pre_save_service_receiver, sender=Service)
+pre_save.connect(pre_save_contact_receiver, sender=Contact)
