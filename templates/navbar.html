@@ -1,4 +1,7 @@
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+{% comment %}
+  
+
+<!-- <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container-fluid">
         <a class="navbar-brand" href="/">
             <img src="/media/images/logo.png" alt="Logo" height="75px" width="125px" class="img-fluid">
@@ -14,7 +17,8 @@
                         href="{% url 'Home' %}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {% if request.resolver_match.url_name == 'about-detail' %}active{% endif %}" href="{% url 'about-detail' %}">About Us</a>
+                    <a class="nav-link {% if request.resolver_match.url_name == 'about-detail' %}active{% endif %}"
+                        href="{% url 'about-detail' %}">About Us</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {% if request.resolver_match.url_name == 'service-detail' %}active{% endif %}"
@@ -54,7 +58,7 @@
 </nav>
 
 
-<!-- Scripts -->
+Scripts
 <script>
     let prevScrollpos = window.pageYOffset;
     window.onscroll = function () {
@@ -77,4 +81,45 @@
             return this.href == url;
         }).addClass('active');
     });
-</script>
+</script> -->
+
+{% endcomment %}
+
+<nav class="navbar navbar-expand-lg bg-white sticky-top">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'Home' %}">
+            <img class="img-fluid" src="/media/images/logo.png" height="75px" width="125px" alt="Logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'Home' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'about-detail' %}">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'service-detail' %}">Services</a>
+                </li>
+                {% if request.user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a>
+                </li>
+                {% endif %}
+                <a href="{% url 'contact-detail' %}" class="btn btn-brand ms-lg-3">Contact Us</a>
+            </ul>
+            <!-- <ul class="navbar-nav ms-lg-auto">
+                <li class="nav-item dropdown">
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item me-5" href="{% url 'signup' %}">Register</a></li>
+                        <li><a class="dropdown-item" href="{% url 'login' %}">Login</a></li>
+                    </div>
+                </li>
+            </ul> -->
+        </div>
+    </div>
+</nav>

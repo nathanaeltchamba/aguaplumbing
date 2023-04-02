@@ -1,3 +1,4 @@
+
 {% extends "base.html" %}
 
 {% load static %}
@@ -5,26 +6,8 @@
 
 {% block content %}
 
+{% comment %}
 <div class="img-background">
-
-    <!-- <section class="hero">
-        <section class="home-hero-section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8">
-                        <h1>Welcome to Agua Plumbing</h1>
-                        <p class="lead">We are a plumbing company that provides high-quality plumbing services to
-                            residential and commercial clients.</p>
-                        <div class="btn-group" role="group" aria-label="Call to action buttons">
-                            <a href="{% url 'service-detail' %}" class="btn btn-primary">Learn More</a>
-                            <a href="{% url 'contact-detail' %}" class="btn btn-secondary">Contact Us</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </section> -->
 
     <section class="hero">
         <div class="home-hero-section py-5">
@@ -65,53 +48,16 @@
         </div>
     </section>
 
-
-    
-
-    <!-- <section id="services">
-        <div class="container">
-            <h2>Our Services</h2>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="service-box h-100">
-                        <i class="fa fa-wrench"></i>
-                        {% for service in services_card_1 %}
-                        <h3>{{service.title}}</h3>
-                        <p>{{service.content|safe}}</p>
-                        {% endfor %}
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="service-box h-100">
-                        <i class="fa fa-tint"></i>
-                        {% for service in services_card_2 %}
-                        <h3>{{service.title}}</h3>
-                        <p>{{service.content|safe}}</p>
-                        {% endfor %}
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="service-box h-100">
-                        <i class="fa fa-shower"></i>
-                        {% for service in services_card_3 %}
-                        <h3>{{service.title}}</h3>
-                        <p>{{service.content|safe}}</p>
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
     <section class="services-section py-5">
         <div class="container">
-            <h2 class="fw-bold mb-5">Our Services</h2>
+            <h2 class="fw-bold mb-5 text-primary">Our Services</h2>
             <div class="row gx-4 gy-5">
                 <div class="col-md-4">
                     <div class="card h-100 border-0 rounded-3 shadow-sm">
                         <div class="card-body d-flex flex-column justify-content-between">
-                            <div>
+                            <div class="">
                                 <i class="fas fa-wrench fa-2x mb-3"></i>
-                                {% for service in services_card_1  %}
+                                {% for service in services_card_1 %}
                                 <h3 class="fw-bold mb-3">{{service.title}}</h3>
                                 <p class="mb-0">{{service.content|safe}}</p>
                                 {% endfor %}
@@ -153,5 +99,158 @@
     </section>
 
 </div>
+{% endcomment %}
+
+<!-- HERO SECTION -->
+<section id="hero" class="min-vh-100 d-flex align-items-center text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="text-white text-uppercase fw-semibold display-1">Welcome to Agua Plumbing</h1>
+                <h5 class="text-white text-uppercase mt-3 mb-4">We are here to serve your plumbing needs</h5>
+                <div class="btn-group-md">
+                    <a class="btn btn-brand" href="{% url 'service-detail' %}">Learn More</a>
+                    <a class="btn btn-secondary" href="{% url 'contact-detail' %}">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT SECTION -->
+<section id="about" class="section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="section-title">
+                    <h1 class="display-4 fw-light">About Us</h1>
+                    <div class="line"></div>
+                    <p class="mt-3 mb-4">Agua Plumbing is a plumbing company that has been serving residential and commercial
+                    clients for over 20 years.</p>
+                </div>
+                <div class="row justify-content-between align-items-center">
+                    <div class="col-lg-6">
+                        <img src="/media/images/greycity.jpg" alt="city image">
+                    </div>
+                    <div class="col-lg-5">
+                        <h1>About Agua Plumbing</h1>
+                        <p class="mt-3 mb-4"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa repudiandae alias explicabo.</p>
+                        <div class="d-flex pt-4 mb-3">
+                            <div class="iconbox me-4">
+                                <i class="ri-user-3-fill"></i>
+                            </div>
+                            <div>
+                                <h5>We are Awesome</h5>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, recusandae!</p>
+                            </div>
+                        </div>
+                        <div class="d-flex pt-4 mb-3">
+                            <div class="iconbox me-4">
+                                <i class="ri-rocket-2-fill"></i>
+                            </div>
+                            <div>
+                                <h5>We are Awesome</h5>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, recusandae!</p>
+                            </div>
+                        </div>
+                        <div class="d-flex pt-4 mb-3">
+                            <div class="iconbox me-4">
+                                <i class="ri-mail-send-fill"></i>
+                            </div>
+                            <div>
+                                <h5>We are Awesome</h5>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, recusandae!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SERVICES SECTION -->
+<section id="services" class="section-padding mb-4">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-12 text-center">
+                <div class="section-title">
+                    <h1 class="display-4 fw-light">Services</h1>
+                    <div class="line"></div>
+                    <p class="mt-3 mb-4">Agua Plumbing is a plumbing company that has been serving residential and commercial
+                        clients for over 20 years.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col-lg-4 col-sm-6">
+                <div class="service theme-shadow p-lg-5 p-4">
+                    <div class="iconbox">
+                        <i class="ri-stack-fill"></i>
+                    </div>
+                    <h5 class="mt-4 mb-3">24/7 Plumbing</h5>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia magni adipisci quasi.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <div class="service theme-shadow p-lg-5 p-4">
+                    <div class="iconbox">
+                        <i class="ri-stack-fill"></i>
+                    </div>
+                    <h5 class="mt-4 mb-3">24/7 Plumbing</h5>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia magni adipisci quasi.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <div class="service theme-shadow p-lg-5 p-4">
+                    <div class="iconbox">
+                        <i class="ri-stack-fill"></i>
+                    </div>
+                    <h5 class="mt-4 mb-3">24/7 Plumbing</h5>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia magni adipisci quasi.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section class="section-padding bg-white pb-5" id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="section-title">
+                    <h1 class="display-4 text-white fw-light mt-2">Get In Touch</h1>
+                    <div class="line"></div>
+                    <p class="text-white">We'd love to be able to assist you. Feel free to reach out.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <form class="row g-3 p-lg-5 p-4 bg-white theme-shadow" action="" method="post">
+                    <div class="form-group col-lg-6">
+                        <input type="text" class="form-control" placeholder="Enter first name">
+                    </div>
+                    <div class="form-group col-lg-6">
+                        <input type="text" class="form-control" placeholder="Enter last name">
+                    </div>
+                    <div class="form-group col-lg-12">
+                        <input type="email" class="form-control" placeholder="Enter Email address">
+                    </div>
+                    <div class="form-group col-lg-12">
+                        <input type="text" class="form-control" placeholder="Enter subject">
+                    </div>
+                    <div class="form-group col-lg-12">
+                        <textarea name="message" rows="5" class="form-control" placeholder="Enter Message"></textarea>
+                    </div>
+                    <div class="form-group col-lg-12 d-grid">
+                        <button class="btn btn-brand">Send Message</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
 
 {% endblock content %}

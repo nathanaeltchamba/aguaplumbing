@@ -6,6 +6,8 @@
 
 {% block content %}
 
+{% comment %}
+<!-- SIDE BAR BEGINS -->
 <div class="row">
     <div class="col-md-4">
         <div class="sidebar">
@@ -39,6 +41,8 @@
             </ul>
         </div>
     </div>
+
+    <!-- SIDE BAR ENDS -->
     <div class="col-md-8">
         <div class="container-fluid">
             <div class="">
@@ -102,7 +106,158 @@
 
     </div>
 </div>
+
+{% endcomment %}
+
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        <div class="bg-dark col-auto col-md-4 col-lg-3 min-vh-100 d-flex flex-column justify-content-between">
+            <div class="bg-dark p-2">
+                <a href="{% url 'dashboard' %}" class="d-flex text-decoration-none align-items-center text-white mt-1">
+                    <span class="fs-4 d-none d-sm-inline">Dashboard</span>
+                    <ul class="nav nav-pills flex-column mt-4">
+                        <li class="nav-item py-2 py-sm-0">
+                            <a href="#" class="nav-link text-white">
+                                <i class="fs-5 fa fa-house"></i><span class="fs-4 d-none ms-4 d-sm-inline">Home</span>
+                            </a>
+                        </li>
+                        <li class="nav-item py-2 py-sm-0">
+                            <a href="#" class="nav-link text-white">
+                                <i class="fs-5 fa fa-chart-column"></i><span class="fs-4 d-none ms-4 d-sm-inline">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="nav-item py-2 py-sm-0">
+                            <div class="dropdown open">
+                                <a class="border-0 text-white dropdown-toggle p-3" type="button" id="triggerId" data-bs-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                    <i class="fs-5 fa fa-broadcast-tower"></i><span class="fs-4 d-none ms-4 d-sm-inline">Manage Website</span>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="triggerId">
+                                    <a class="dropdown-item" href="{% url 'about-list' %}">About</a>
+                                    <a class="dropdown-item" href="{% url 'contact-list' %}">Contacts</a>
+                                    <a class="dropdown-item" href="{% url 'service-list' %}">Services</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </a>
+            </div>
+            <div class="dropdown open p-3">
+                <button class="btn border-0 dropdown-toggle text-white" type="button" id="triggerId" data-bs-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                            <i class="fa fa-user"></i><span class="ms-2">{{request.user.username | title}}</span>
+                        </button>
+                <div class="dropdown-menu" aria-labelledby="triggerId">
+                    <button class="dropdown-item" href="#">Update Password</button>
+                    <button class="dropdown-item" href="{% url 'logout' %}">Logout</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTENT SECTION -->
+        <div class="row">
+            <div class="col-auto">
+                <div class="container-fluid">
+                    <div class="">
+                        <h4 class="fw-light mt-4">Default</h4>
+                        <h6 class="text-secondary">Home - Dashboards</h6>
+                    </div>
+                    <div class="card mb-2">
+                        <div class="card-body h-100">
+                            <a class="text-decoration-none" href="{% url 'menu-list' %}">
+                                <div class="d-flex justify-content-between">
+                                    <h5 class="card-title">View Your Published Posts</h5>
+                                    <a class="text-decoration-none rounded-1 btn btn-primary" href="{% url 'menu-list' %}">Posts</a>
+                                </div>
+                            </a>
+            
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <h2 class="fw-lighter">Create A New Post</h2>
+                        <div class="col-auto">
+                            <div class="card">
+                                <a class="text-decoration-none" href="{% url 'create-contact' %}">
+                                    <img class="card-img-top" src="/media/images/dash1.png" alt="contact us image">
+                                </a>
+                                <div class="card-body">
+                                    <a class="text-decoration-none" href="{% url 'create-contact' %}">
+                                        <h5 class="card-title">Contact Us</h5>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <div class="card">
+                                <a class="text-decoration-none" href="{% url 'create-about' %}">
+                                    <img class="card-img-top" src="/media/images/dash2.png" alt="about us image">
+                                </a>
+                                <div class="card-body">
+                                    <a class="text-decoration-none" href="{% url 'create-about' %}">
+                                        <h5 class="card-title">About Us</h5>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <div class="card">
+                                <a class="text-decoration-none" href="{% url 'create-service' %}">
+                                    <img class="card-img-top" src="/media/images/dash.png" alt="services image">
+                                </a>
+                                <div class="card-body">
+                                    <a class="text-decoration-none" href="{% url 'create-service' %}">
+                                        <h5 class="card-title">Services</h5>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+        
+    </div>
 </div>
+
+<style>
+    .card {
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        overflow: hidden;
+        background-color: #fff;
+    }
+
+
+    .card-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: #212529;
+    }
+
+    .card-body {
+        padding: 1rem;
+    }
+
+    .card-img-top {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+    }
+
+    .dropdown-menu a:hover {
+        color: white;
+    }
+
+    @media (min-width: 768px) {
+        .card-img-top {
+            height: 200px;
+        }
+    }
+</style>
+
+
 
 {% block footer %}
 
