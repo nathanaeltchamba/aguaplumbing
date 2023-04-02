@@ -43,67 +43,68 @@
     </div>
 
     <!-- SIDE BAR ENDS -->
-    <div class="col-md-8">
-        <div class="container-fluid">
-            <div class="">
-                <h4 class="fw-light mt-4">Default</h4>
-                <h6 class="text-secondary">Home - Dashboards</h6>
-            </div>
-            <div class="card mb-2">
-                <div class="card-body h-100">
-                    <a class="text-decoration-none" href="{% url 'menu-list' %}">
-                        <div class="d-flex justify-content-between">
-                            <h5 class="card-title">View Your Published Posts</h5>
-                            <a class="text-decoration-none btn btn-outline-primary" href="{% url 'menu-list' %}">Posts</a>
-                        </div>
-                    </a>
-                    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="">
+                    <h4 class="fw-light mt-4">Default</h4>
+                    <h6 class="text-secondary">Home - Dashboards</h6>
                 </div>
-            </div>
-            <div class="row mt-4">
-                <h2 class="fw-lighter">Create A New Post</h2>
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <a class="text-decoration-none" href="{% url 'create-contact' %}">
-                                <h5 class="card-title">Contact Us</h5>
-                            </a>
-                            <a href="{% url 'create-contact' %}">
-                                <img class="img-fluid" src="/media/images/dash1.png" width="220px" height="150px"
-                                    alt="contact us image">
-                            </a>
-                        </div>
+                <div class="card mb-2">
+                    <div class="card-body h-100">
+                        <a class="text-decoration-none" href="{% url 'menu-list' %}">
+                            <div class="d-flex justify-content-between">
+                                <h5 class="card-title">View Your Published Posts</h5>
+                                <a class="text-decoration-none btn btn-outline-primary" href="{% url 'menu-list' %}">Posts</a>
+                            </div>
+                        </a>
+                
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <a class="text-decoration-none" href="{% url 'create-about' %}">
-                                <h5 class="card-title">About Us</h5>
-                            </a>
-                            <a href="{% url 'create-about' %}">
-                                <img class="img-fluid" src="/media/images/dash2.png" width="220px" height="150px"
-                                    alt="about us image">
-                            </a>
+                <div class="row mt-4">
+                    <h2 class="fw-lighter">Create A New Post</h2>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <a class="text-decoration-none" href="{% url 'create-contact' %}">
+                                    <h5 class="card-title">Contact Us</h5>
+                                </a>
+                                <a href="{% url 'create-contact' %}">
+                                    <img class="img-fluid" src="/media/images/dash1.png" width="220px" height="150px"
+                                        alt="contact us image">
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <a class="text-decoration-none" href="{% url 'create-service' %}">
-                                <h5 class="card-title">Services</h5>
-                            </a>
-                            <a href="{% url 'create-service' %}">
-                                <img class="img-fluid" src="/media/images/dash.png" width="220px" height="150px"
-                                    alt="services image">
-                            </a>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <a class="text-decoration-none" href="{% url 'create-about' %}">
+                                    <h5 class="card-title">About Us</h5>
+                                </a>
+                                <a href="{% url 'create-about' %}">
+                                    <img class="img-fluid" src="/media/images/dash2.png" width="220px" height="150px"
+                                        alt="about us image">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <a class="text-decoration-none" href="{% url 'create-service' %}">
+                                    <h5 class="card-title">Services</h5>
+                                </a>
+                                <a href="{% url 'create-service' %}">
+                                    <img class="img-fluid" src="/media/images/dash.png" width="220px" height="150px"
+                                        alt="services image">
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
 </div>
 
@@ -117,12 +118,12 @@
                     <span class="fs-4 d-none d-sm-inline">Dashboard</span>
                     <ul class="nav nav-pills flex-column mt-4">
                         <li class="nav-item py-2 py-sm-0">
-                            <a href="#" class="nav-link text-white">
+                            <a href="{% url 'Home' %}" class="nav-link text-white">
                                 <i class="fs-5 fa fa-house"></i><span class="fs-4 d-none ms-4 d-sm-inline">Home</span>
                             </a>
                         </li>
                         <li class="nav-item py-2 py-sm-0">
-                            <a href="#" class="nav-link text-white">
+                            <a href="{% url 'dashboard' %}" class="nav-link text-white">
                                 <i class="fs-5 fa fa-chart-column"></i><span class="fs-4 d-none ms-4 d-sm-inline">Dashboard</span>
                             </a>
                         </li>
@@ -148,8 +149,8 @@
                             <i class="fa fa-user"></i><span class="ms-2">{{request.user.username | title}}</span>
                         </button>
                 <div class="dropdown-menu" aria-labelledby="triggerId">
-                    <button class="dropdown-item" href="#">Update Password</button>
-                    <button class="dropdown-item" href="{% url 'logout' %}">Logout</button>
+                    <a class="dropdown-item" href="#">Update Password</a>
+                    <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
                 </div>
             </div>
         </div>
@@ -247,7 +248,7 @@
     }
 
     .dropdown-menu a:hover {
-        color: white;
+        color: rgb(156, 166, 239);
     }
 
     @media (min-width: 768px) {
