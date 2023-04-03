@@ -14,6 +14,11 @@ body {
     font-family: 'Space Grotesk', sans-serif;
 }
 
+.section-padding {
+    padding-top: 140px;
+    padding-bottom: 140px;
+}
+
 h1, h2, h3,h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
     font-weight: 600;
@@ -79,11 +84,21 @@ img {
 /* HERO */
 
 #hero {
-    background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('/media/images/lightbluesky.jpg');
+    background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.8)), url('/media/images/lightbluesky.jpg');
     background-position: center;
     background-size: cover;
 }
 
+/* SECOND HERO */
+.slide1{
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/media/images/banner3.jpg');
+}
+
+.bg-cover {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 /* SECTION TITLE */
 
 .section-title {
@@ -194,5 +209,18 @@ footer .line {
     background-color: #4e57d4;
 }
 
-/* CARD BASIC */
+/* COUNTER */
+#counter {
+    background: linear-gradient(rgba(var(--c-brand-rgb), 0.8), rgba(var(--c-brand-rgb), 0.4)), url('/media/images/constructino.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+/* SERVICE DETAIL PAGE */
+
+#hero-1 {
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.1)), url('/media/images/pipes.jpg');
+    background-position: center;
+    background-size: cover;
+}
 
