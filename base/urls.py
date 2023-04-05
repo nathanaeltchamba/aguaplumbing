@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import (Home, CustomLoginView, DashboardView, 
+from .views import (Home, CustomLoginView, DashboardView, UpdateUserView, 
                     AddMenuView, MenuListView, MenuDetailView, MenuUpdateView, MenuDelete, 
                     AddServiceView, ServiceDetailView, ServiceUpdateView, ServiceDeleteView, ServiceList,
                     AddContactView, ContactDetailView, ContactUpdateView, ContactDeleteView, ContactList,
@@ -27,6 +27,7 @@ urlpatterns = [
     path('service/<slug:slug>/update/', ServiceUpdateView.as_view(), name='service-update'),
     path('contact/<slug:slug>/update/', ContactUpdateView.as_view(), name='contact-update'),
     path('about/<slug:slug>/update/', AboutUpdateView.as_view(), name='about-update'),
+    path('update-user/<int:pk>/', UpdateUserView.as_view(), name='update-user'),
     # Delete Paths
     path('menu/<slug:slug>/delete/', MenuDelete.as_view(), name='menu-delete'),
     path('service/<slug:slug>/delete/', ServiceDeleteView.as_view(), name='service-delete'),

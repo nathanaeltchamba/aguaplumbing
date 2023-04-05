@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+{% comment %}
+<h1>Update User Information</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <label for="id_new_password">New Password:</label>
+    <input type="password" name="new_password" id="id_new_password">
+    <button class="btn btn-brand" type="submit">Save Changes</button>
+</form>
+{% endcomment %}
+
+{% block navbar %}
+{% endblock navbar %}
+
+<div class="container mt-2">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <nav aria-label="breadcrumb">
+                <div class="container">
+                    <ol class="breadcrumb bg-transparent mb-0">
+                        <li class="breadcrumb-item"><a href="{% url 'dashboard' %}" class="text-decoration-none">Dashboard</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Manage Account</li>
+                    </ol>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<section class="account section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <div class="line1"></div>
+                <h4 class="mb-4 fw-lighter">Manage Account</h4>
+                <div class="line"></div>
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <div class="mb-3">
+                        <label for="id_new_password" class="form-label">New Password:</label>
+                        <input type="password" name="new_password" id="id_new_password" class="form-control">
+                    </div>
+                    <button class="btn btn-primary" type="submit">Save Changes</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .account .line{
+        width: 320px;
+        height: 4px;
+        background-color: var(--c-brand);
+        margin-top: 12px;
+        margin-bottom: 24px;
+    }
+    
+    .account .line1 {
+        width: 120px;
+        height: 4px;
+        background-color: var(--c-brand);
+        margin-top: 12px;
+        margin-bottom: 24px;
+    }
+</style>
+
+
+{% block footer %}
+{% endblock footer %}
+
+{% endblock %}

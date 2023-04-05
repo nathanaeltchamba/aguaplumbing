@@ -259,7 +259,7 @@
                         <i class="fa fa-user"></i><span class="ms-2">{{request.user.username | title}}</span>
                     </button>
                     <div class="dropdown-menu" aria-labelledby="triggerId">
-                        <a class="dropdown-item" href="#">Update Password</a>
+                        <a class="dropdown-item" href="{% url 'update-user' user.pk %}">Manage Account</a>
                         <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
                     </div>
                 </div>
