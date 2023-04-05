@@ -4,6 +4,7 @@ from django.views.generic import TemplateView, ListView, UpdateView, DeleteView,
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView
 from django.contrib import messages
+from django.http import JsonResponse
 from django.core.mail import send_mail
 from .forms import (CustomUserCreationForm, InquiryForm, MenuForm, EditMenuForm, 
                     ServiceForm, AboutForm, AboutUpdateForm, UpdateServiceForm, ContactCreationForm, ContactUpdateForm)
@@ -276,10 +277,32 @@ class DashboardView(LoginRequiredMixin, TemplateView):
         return context
     
 
+# class Inquiry(FormView):
+#     template_name = 'inquiry.html'
+#     form_class = InquiryForm
+#     success_url = reverse_lazy('contact-detail')
+
+#     def form_valid(self, form):
+#         # Get the cleaned form data
+#         name = form.cleaned_data['name']
+#         email = form.cleaned_data['email']
+#         message = form.cleaned_data['message']
+
+#         # Construct the email message
+#         subject = f'New message from {name}'
+#         body = f'{message}\n\nFrom: {name}\nEmail: {email}'
+#         from_email = 'noreply@aguaplumbing.com'
+#         to_email = ['natanshost@gmail.com']
+
+#         # Send the email
+#         send_mail(subject, body, from_email, to_email, fail_silently=False)
+
+#         return super().form_valid(form)
+
 class Inquiry(FormView):
     template_name = 'inquiry.html'
     form_class = InquiryForm
-    success_url = reverse_lazy('contact-detail')
+    success_url = reverse_lazy('Home')
 
     def form_valid(self, form):
         # Get the cleaned form data
@@ -296,4 +319,13 @@ class Inquiry(FormView):
         # Send the email
         send_mail(subject, body, from_email, to_email, fail_silently=False)
 
+        # Set the success message
+        messages.success(self.request, 'Your message has been sent!')
+
+        # Redirect back to the homepage with success message
         return super().form_valid(form)
+
+    def form_invalid(self, form):
+        # Return the normal form invalid response
+        return super().form_invalid(form)
+

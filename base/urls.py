@@ -35,7 +35,7 @@ urlpatterns = [
     # Misc Paths
     path('dashboard/', DashboardView.as_view(), name='dashboard'),
     path('login/', CustomLoginView.as_view(), name='login'),
-    path('contact/', ContactDetailView.as_view(), name='contact-detail'),
+    # path('contact/', ContactDetailView.as_view(), name='contact-detail'),
     path('services/', ServiceDetailView.as_view(), name='service-detail'),
     path('about/', AboutDetailView.as_view(), name='about-detail'),
     path('inquiry/', Inquiry.as_view(), name='inquiry'),

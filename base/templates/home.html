@@ -97,25 +97,36 @@
             </div>
         </div>
     </section>
-
-</div>
-{% endcomment %}
-
-<!-- HERO SECTION -->
-<!-- <section id="hero" class="min-vh-100 d-flex align-items-center text-center">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="text-white text-uppercase fw-semibold display-1">Welcome to Agua Plumbing</h1>
-                <h5 class="text-white text-uppercase mt-3 mb-4">We are here to serve your plumbing needs</h5>
-                <div class="btn-group-md">
-                    <a class="btn btn-brand" href="{% url 'service-detail' %}">Learn More</a>
-                    <a class="btn btn-secondary" href="{% url 'contact-detail' %}">Contact Us</a>
+    
+    <!-- <section id="hero" class="min-vh-100 d-flex align-items-center text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="text-white text-uppercase fw-semibold display-1">Welcome to Agua Plumbing</h1>
+                    <h5 class="text-white text-uppercase mt-3 mb-4">We are here to serve your plumbing needs</h5>
+                    <div class="btn-group-md">
+                        <a class="btn btn-brand" href="{% url 'service-detail' %}">Learn More</a>
+                        <a class="btn btn-secondary" href="{% url 'contact-detail' %}">Contact Us</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section> -->
+    </section> -->
+</div>
+{% endcomment %}
+
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+    <strong>{{message}}</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endfor %}
+{% endif %}
+
+
+
+<!-- HERO SECTION -->
 
 <div class="slider-wrapper">
     <div class="slide1 min-vh-100 bg-cover d-flex align-items-center">
@@ -124,7 +135,7 @@
                 <div class="col-12">
                     <h6 class="text-uppercase text-white">We craft digital experiences</h6>
                     <h1 class="display-2 my-3 text-white text-uppercase">Welcome to<br>Agua Plumbing</h1>
-                    <a href="{% url 'contact-detail' %}" class="btn btn-outline-light">Reach Out</a>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-outline-light">Reach Out</a>
                     <a href="{% url 'service-detail' %}" class="btn btn-brand">Learn More</a>
                 </div>
             </div>
@@ -323,5 +334,29 @@
         </div>
     </div>
 </section>
+
+<style>
+    .messages {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.messages li {
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.messages li.success {
+    background-color: #DFF0D8;
+    color: #3C763D;
+}
+
+.messages li.error {
+    background-color: #F2DEDE;
+    color: #A94442;
+}
+
+</style>
 
 {% endblock content %}
