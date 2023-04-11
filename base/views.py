@@ -40,6 +40,7 @@ class SignupView(CreateView):
     
 class CustomLoginView(LoginView):
     template_name = 'registration/login.html'
+    redirect_authenticated_user = True
 
     def form_valid(self, form):
         # Get the username of the logged in user
