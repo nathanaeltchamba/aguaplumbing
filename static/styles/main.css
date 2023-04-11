@@ -249,112 +249,6 @@ footer .line {
     background-color: var(--brand) !important;
 }
 
-
- /* slide */
- .slide {
-     min-height: 100vh;
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     position: relative;
-}
-
-.slide1 {
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(../img/bg_banner2.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-.slide2 {
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(../img/bg_banner1.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-.slide .display-3 {
-    text-transform: uppercase;
-    color: #fff;
-}
-
-/* navbar */
-.top-nav {
-    background-color: var(--brand);
-    color: #fff;
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
-
-.top-nav p {
-    display: inline-block;
-    margin-bottom: 0;
-    margin-right: 10px;
-}
-
-.top-nav span,
-.top-nav i {
-    vertical-align: middle;
-}
-
-.navbar {
-    box-shadow: var(--shadow);
-}
-
-.social-icons a {
-    width: 28px;
-    height: 28px;
-    display: inline-flex;
-    color: #fff;
-    background-color: rgba(255, 255, 255, 0.25);
-    text-decoration: none;
-    align-items: center;
-    justify-content: center;
-    border-radius: 100px;
-}
-
-.social-icons a:hover {
-    background-color: #fff;
-    color: var(--brand);
-}
-
-.navbar .navbar-nav .nav-link {
-    color: var(--dark);
-}
-
-.navbar .navbar-nav .nav-link:hover {
-    color: var(--brand);
-}
-
-.navbar .navbar-nav .nav-link.active {
-    color: var(--brand);
-}
-
-.navbar-brand {
-    font-size: 28px;
-    font-weight: 700;
-}
-
-.navbar-brand .dot {
-    color: var(--brand);
-}
-
-.btn {
-    padding: 8px 26px;
-}
-
-.btn-brand {
-    border-color: var(--brand);
-    background-color: var(--brand);
-    color: #fff;
-}
-
-.btn-brand:hover {
-    background-color: #d64022;
-    border-color: #d64022;
-    color: #fff;
-}
-
 .intro {margin-bottom: 36px;
 text-align: center;}
 
@@ -457,8 +351,22 @@ text-align: center;}
 .intro p {
     max-width: 500px;
 }
-.intro h6{
+.intro h4, h6{
     color: var(--c-brand);
     font-weight: 400;
     text-transform: uppercase;
+}
+
+.project img {
+    width: 200px;
+    height: 400px;
+    object-fit: contain;
+    object-position: center center;
+}
+
+.intro .line {
+    width: 180px;
+    height: 4px;
+    background-color: var(--c-brand);
+    margin: 16px auto 24px auto;
 }
