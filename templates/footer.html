@@ -1,35 +1,38 @@
+{% load static %}
 <footer class="bg-dark">
     <div class="footer-top">
         <div class="container">
             <div class="row gy-5">
                 <div class="col-lg-3 col-sm-6">
-                    <img src="/media/images/logomountain.png" width="175px" height="105px" alt="logo">
+                    <img src="{% static 'images/logomountain.png' %}" width="175px" height="105px" alt="logo">
                 </div>
                 <div class="col-lg-3 col-sm-6">
                     <h5>SERVICES</h5>
                     <div class="line"></div>
                     <ul>
-                        <li><a href="#">Leaking Solutions</a></li>
-                        <li><a href="#">24/7 Emergency</a></li>
-                        <li><a href="#">Plumbing Perfection</a></li>
+                        <li><a href="{% url 'service-detail' %}">Custom Projects</a></li>
+                        <li><a href="{% url 'service-detail' %}">Finishing Basements</a></li>
+                        <li><a href="{% url 'service-detail' %}">New Construction:</a></li>
+                        <li><a href="{% url 'service-detail' %}">Remodels</a></li>
+                        <li><a href="{% url 'service-detail' %}">Small Comercial</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-sm-6">
                     <h5>About</h5>
                     <div class="line"></div>
                     <ul>
-                        <li><a href="#">Pricing/Financing</a></li>
-                        <li><a href="#">Company</a></li>
-                        <li><a href="#">Commitment</a></li>
+                        <li><a href="{% url 'about-detail' %}">Commitment</a></li>
+                        <li><a href="{% url 'about-detail' %}">Company</a></li>
+                        <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Pricing/Financing</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-sm-6">
                     <h5>Contact</h5>
                     <div class="line"></div>
                     <ul>
-                        <li><a href="#">222-222-2222</a></li>
-                        <li><a href="#">24266 E Bellewood Dr Aurora, CO 80016</a></li>
-                        <li><a href="#">info@aguaplumbing.com</a></li>
+                        <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">720-410-1387</a></li>
+                        <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">24266 E Bellewood Dr Aurora, CO 80016</a></li>
+                        <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">info@aguaplumbing.com</a></li>
                     </ul>
                 </div>
             </div>

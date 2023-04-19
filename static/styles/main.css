@@ -88,7 +88,7 @@ img {
 
 /* HERO */
 .slide1{
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/media/images/constructionteam2.jpg');
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/static/images/constructionteam2.jpg');
 }
 
 .bg-cover {
@@ -155,7 +155,7 @@ img {
     content: "";
     width: 100%;
     height: 70%;
-    background: linear-gradient(rgba(0,0,0, 0.8), rgba(var(--c-brand-rgb), 0.7)), url('/media/images/workingteam.jpg');
+    background: linear-gradient(rgba(0,0,0, 0.8), rgba(var(--c-brand-rgb), 0.7)), url('/static/images/workingteam.jpg');
     background-position: center;
     background-size: cover;
     position: absolute;
@@ -298,7 +298,7 @@ footer .line {
 
 /* COUNTER */
 #counter {
-    background: linear-gradient(rgba(var(--c-brand-rgb), 0.8), rgba(var(--c-brand-rgb), 0.4)), url('/media/images/constructino.jpg');
+    background: linear-gradient(rgba(var(--c-brand-rgb), 0.8), rgba(var(--c-brand-rgb), 0.4)), url('/static/images/constructino.jpg');
     background-position: center;
     background-size: cover;
 }
@@ -306,7 +306,7 @@ footer .line {
 /* SERVICE DETAIL PAGE */
 
 #hero-1 {
-    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.1)), url('/media/images/pipes.jpg');
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.1)), url('/static/images/pipes.jpg');
     background-position: center;
     background-size: cover;
 }
@@ -314,7 +314,7 @@ footer .line {
 /* ABOUT DETAIL PAGE */
 
 #hero-2 {
-    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.1)), url('/media/images/redhat.jpg');
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.1)), url('/static/images/redhat.jpg');
     background-position: center;
     background-size: cover;
 }
@@ -610,4 +610,12 @@ text-align: center;}
     bottom: -14px;
     background-color: white;
     transform: rotate(45deg);
+}
+
+/* ERROR PAGES */
+
+#hero-3 {
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.1)), url('/static/images/notfound.jpg');
+    background-position: center;
+    background-size: cover;
 }

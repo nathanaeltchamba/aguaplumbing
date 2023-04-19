@@ -318,3 +318,19 @@ class UpdateUserView(LoginRequiredMixin, UpdateView):
             form.instance.password = make_password(new_password)
         return super().form_valid(form)
 
+# Error Handling Views
+def error_404(request, exception):
+        data = {}
+        return render(request,'404.html', data)
+
+def error_500(request):
+        data = {}
+        return render(request,'500.html', data)
+
+def error_400(request, exception):
+        data = {}
+        return render(request,'500.html', data)
+
+def error_403(request, exception):
+        data = {}
+        return render(request,'500.html', data)

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<section id="hero-3" class="min-vh-100 d-flex align-items-center text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="text-white text-uppercase fw-semibold display-1">404 Not Found</h1>
+                <h6 class="text-white text-uppercase mt-3 mb-4">Oops we're sorry about that</h6>
+                <a href="{% url 'Home' %}" class="btn btn-brand">Back to Home</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<style>
+    #hero-3 {
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.1)), url('/static/images/notfound.jpg');
+    background-position: center;
+    background-size: cover;
+}
+</style>
+{% endblock content %}

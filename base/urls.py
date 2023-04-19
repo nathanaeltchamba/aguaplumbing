@@ -5,7 +5,7 @@ from .views import (Home, CustomLoginView, DashboardView, UpdateUserView,
                     AddServiceView, ServiceDetailView, ServiceUpdateView, ServiceDeleteView, ServiceList,
                     AddContactView, ContactDetailView, ContactUpdateView, ContactDeleteView, ContactList,
                     AddAboutUsView, AboutDetailView, AboutUpdateView, AboutDeleteView, AboutList,
-                    Inquiry,)
+                    Inquiry)
 
 
 urlpatterns = [
