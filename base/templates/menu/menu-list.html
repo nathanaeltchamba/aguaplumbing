@@ -4,459 +4,270 @@
 {% endblock navbar %}
 
 {% block content %}
+    <style>
+        .dropdown-toggle {
+            background-color: transparent;
+            border: none;
+            color: #6c757d;
+        }
 
-{% comment %}
-<div class="row">
-    <div class="col-md-4">
-        <div class="sidebar">
-            <div class="sidebar-header">
-                <a class="text-decoration-none text-white" href="{% url 'dashboard' %}">
-                    <h3>Dashboard</h3>
-                </a>
-            </div>
-            <ul class="list-unstyled components">
-                <li>
-                    <a href="{% url 'Home' %}">Home <i class="fa-solid fa-home ms-2"></i></a>
-                </li>
-                <li>
-                    <a href="{% url 'dashboard' %}">Dashboard <i class="fa-solid fa-chart-line ms-2"></i></a>
-                </li>
-                <li class="active">
-                    <a href="#homeSubmenu" data-bs-toggle="collapse" aria-expanded="false"
-                        class="dropdown-toggle">Manage
-                        Website</a>
-                    <ul class="collapse show" id="homeSubmenu">
-                        <li><a href="{% url 'about-list' %}">About Us</a></li>
-                        <li><a href="{% url 'contact-list' %}">Contact</a></li>
-                        <li><a href="{% url 'service-list' %}">Services</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#pageSubmenu" data-bs-toggle="collapse" aria-expanded="false"
-                        class="dropdown-toggle">Account
-                        Management</a>
-                    <ul class="collapse" id="pageSubmenu">
-                        <li><a href="{% url 'logout' %}">Logout</a></li>
-                        <li><a href="#">Change Password</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </div>
+        .dropdown-toggle:hover {
+            background-color: transparent;
+            color: black;
+        }
 
-    <!-- Content Below Here -->
-    <div class="col-md-8">
-        <div class="container">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{% url 'dashboard' %}">Dashboard</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Post</li>
-                </ol>
-            </nav>
-            <div class="container">
-                <hr>
-                <section class="about">
-                    <div class="d-flex justify-content-between align-items-center mb-4">
-                        <h1 class="fs-4 text-muted">About</h1>
-                        <a href="{% url 'create-about' %}" class="btn btn-primary"><i
-                                class="fas fa-plus me-2"></i>Create
-                            New</a>
-                    </div>
-                    <div class="table-responsive">
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Title</th>
-                                    <th scope="col">Content</th>
-                                    <th scope="col">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {% for about in aboutus %}
-                                <tr>
-                                    <th scope="row">{{ forloop.counter }}</th>
-                                    <td>{{ about.title }}</td>
-                                    <td>{{ about.content }}</td>
-                                    <td>
-                                        <div class="dropdown">
-                                            <button class="btn btn-outline-secondary dropdown-toggle" type="button"
-                                                id="dropdownMenuButton{{ forloop.counter }}" data-bs-toggle="dropdown"
-                                                aria-haspopup="true" aria-expanded="false">
-                                                <i class="fas fa-ellipsis-v"></i>
-                                            </button>
-                                            <div class="dropdown-menu"
-                                                aria-labelledby="dropdownMenuButton{{ forloop.counter }}">
-                                                <a class="dropdown-item" href="{% url 'about-update' about.slug %}">
-                                                    <i class="fas fa-edit me-2"></i>Edit
-                                                </a>
-                                                <a class="dropdown-item text-danger"
-                                                    href="{% url 'about-delete' about.slug %}">
-                                                    <i class="fas fa-trash-alt me-2"></i>Delete
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                {% empty %}
-                                <tr>
-                                    <td colspan="4">No About Us information found.</td>
-                                </tr>
-                                {% endfor %}
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
-                <section class="contact">
-                    <div class="d-flex justify-content-between align-items-center mb-4">
-                        <h1 class="fs-4 text-muted">Contact</h1>
-                        <a href="{% url 'create-contact' %}" class="btn btn-primary"><i
-                                class="fas fa-plus me-2"></i>Create
-                            New</a>
-                    </div>
-                    <div class="table-responsive">
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Rank</th>
-                                    <th scope="col">Title</th>
-                                    <th scope="col">Content</th>
-                                    <th scope="col">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {% for contact in contacts %}
-                                <tr>
-                                    <th scope="row">{{ forloop.counter }}</th>
-                                    <td>{{ contact.title }}</td>
-                                    <td>{{ contact.content }}</td>
-                                    <td>
-                                        <div class="dropdown">
-                                            <button class="btn btn-outline-secondary dropdown-toggle" type="button"
-                                                id="dropdownMenuButton{{ forloop.counter }}" data-bs-toggle="dropdown"
-                                                aria-haspopup="true" aria-expanded="false">
-                                                <i class="fas fa-ellipsis-v"></i>
-                                            </button>
-                                            <div class="dropdown-menu"
-                                                aria-labelledby="dropdownMenuButton{{ forloop.counter }}">
-                                                <a class="dropdown-item" href="{% url 'contact-update' contact.slug %}">
-                                                    <i class="fas fa-edit me-2"></i>Edit
-                                                </a>
-                                                <a class="dropdown-item text-danger"
-                                                    href="{% url 'contact-delete' contact.slug %}">
-                                                    <i class="fas fa-trash-alt me-2"></i>Delete
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                {% empty %}
-                                <tr>
-                                    <td colspan="4">No Contact information found.</td>
-                                </tr>
-                                {% endfor %}
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
-                <section class="service">
-                    <div class="d-flex justify-content-between align-items-center mb-4">
-                        <h1 class="fs-4 text-muted">Service</h1>
-                        <a href="{% url 'create-service' %}" class="btn btn-primary"><i
-                                class="fas fa-plus me-2"></i>Create
-                            New</a>
-                    </div>
-                    <div class="table-responsive">
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Title</th>
-                                    <th scope="col">Content</th>
-                                    <th scope="col">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {% for service in services %}
-                                <tr>
-                                    <th scope="row">{{ forloop.counter }}</th>
-                                    <td>{{ service.title }}</td>
-                                    <td>{{ service.content|safe }}</td>
-                                    <td>
-                                        <div class="dropdown">
-                                            <button class="btn btn-outline-secondary dropdown-toggle" type="button"
-                                                id="dropdownMenuButton{{ forloop.counter }}" data-bs-toggle="dropdown"
-                                                aria-haspopup="true" aria-expanded="false">
-                                                <i class="fas fa-ellipsis-v"></i>
-                                            </button>
-                                            <div class="dropdown-menu"
-                                                aria-labelledby="dropdownMenuButton{{ forloop.counter }}">
-                                                <a class="dropdown-item" href="{% url 'service-update' service.slug %}">
-                                                    <i class="fas fa-edit me-2"></i>Edit
-                                                </a>
-                                                <a class="dropdown-item text-danger"
-                                                    href="{% url 'service-delete' service.slug %}">
-                                                    <i class="fas fa-trash-alt me-2"></i>Delete
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                {% empty %}
-                                <tr>
-                                    <td colspan="4">No Service information found.</td>
-                                </tr>
-                                {% endfor %}
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
+        .dropdown-toggle:focus {
+            box-shadow: none;
+        }
+
+        .dropdown-toggle i {
+            font-size: 1.2rem;
+        }
+    </style>
+
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar -->
+        <div class="bg-white" id="sidebar-wrapper">
+            <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"><i
+                    class="fas fa-water me-2"></i>Agua Portal</div>
+            <div class="list-group list-group-flush my-3">
+                <a href="{% url 'Home' %}" class="list-group-item list-group-item-action bg-transparent second-text active"><i
+                        class="fas fa-home-alt me-2"></i>Home</a>
+                <a href="{% url 'menu-list' %}"
+                    class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                        class="fas fa-project-diagram me-2"></i>Projects</a>
+                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                        class="fas fa-chart-line me-2"></i>Analytics</a>
+                <a href="{% url 'about-list' %}"
+                    class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                        class="fas fa-cruzeiro-sign me-2"></i>About</a>
+                <a href="{% url 'contact-list' %}"
+                    class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                        class="fas fa-contact-book me-2"></i>Contact</a>
+                <a href="{% url 'service-list' %}"
+                    class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                        class="fas fa-server me-2"></i>Service</a>
+                <a href="#" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
+                        class="fas fa-power-off me-2"></i>Logout</a>
             </div>
         </div>
-    </div>
-    {% endcomment %}
+        <!-- /#sidebar-wrapper -->
 
-    <div class="container-fluid">
-        <div class="row flex-nowrap">
-            <div class="bg-dark col-auto col-md-4 col-lg-3 min-vh-100 d-flex flex-column justify-content-between">
-                <div class="bg-dark p-2">
-                    <a href="{% url 'dashboard' %}"
-                        class="d-flex text-decoration-none align-items-center text-white mt-1">
-                        <span class="fs-4 d-none d-sm-inline">Dashboard</span>
-                        <ul class="nav nav-pills flex-column mt-4">
-                            <li class="nav-item py-2 py-sm-0">
-                                <a href="{% url 'Home' %}" class="nav-link text-white">
-                                    <i class="fs-5 fa fa-house"></i><span
-                                        class="fs-4 d-none ms-4 d-sm-inline">Home</span>
-                                </a>
-                            </li>
-                            <li class="nav-item py-2 py-sm-0">
-                                <a href="{% url 'dashboard' %}" class="nav-link text-white">
-                                    <i class="fs-5 fa fa-chart-column"></i><span
-                                        class="fs-4 d-none ms-4 d-sm-inline">Dashboard</span>
-                                </a>
-                            </li>
-                            <li class="nav-item py-2 py-sm-0">
-                                <div class="dropdown open">
-                                    <a class="border-0 text-white dropdown-toggle p-3" type="button" id="triggerId"
-                                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="fs-5 fa fa-broadcast-tower"></i><span
-                                            class="fs-4 d-none ms-4 d-sm-inline">Manage Website</span>
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="triggerId">
-                                        <a class="dropdown-item" href="{% url 'about-list' %}">About</a>
-                                        <a class="dropdown-item" href="{% url 'contact-list' %}">Contacts</a>
-                                        <a class="dropdown-item" href="{% url 'service-list' %}">Services</a>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
+                    <a href="{% url 'dashboard' %}">
+                        <h2 class="fs-2 m-0">Dashboard</h2>
                     </a>
                 </div>
-                <div class="dropdown open p-3">
-                    <button class="btn border-0 dropdown-toggle text-white" type="button" id="triggerId"
-                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fa fa-user"></i><span class="ms-2">{{request.user.username | title}}</span>
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="triggerId">
-                        <a class="dropdown-item" href="{% url 'update-user' user.pk %}">Manage Account</a>
-                        <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
-                    </div>
-                </div>
-            </div>
 
-            <!-- CONTENT SECTION -->
-            <div class="row">
-                <div class="col-auto">
-                    <div class="container">
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{% url 'dashboard' %}">Dashboard</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Posts</li>
-                            </ol>
-                        </nav>
-                        <div class="container-fluid">
-                            <hr>
-                            <section class="about">
-                                <div class="d-flex justify-content-between align-items-center mb-4">
-                                    <h1 class="fs-4 text-muted">About</h1>
-                                    <a href="{% url 'create-about' %}" class="btn btn-primary"><i class="fas fa-plus me-2"></i>Create
-                                        New</a>
-                                </div>
-                                <div class="table-responsive">
-                                    <table class="table table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">#</th>
-                                                <th scope="col">Title</th>
-                                                <th scope="col">Content</th>
-                                                <th scope="col">Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            {% for about in aboutus %}
-                                            <tr>
-                                                <th scope="row">{{ forloop.counter }}</th>
-                                                <td>{{ about.title }}</td>
-                                                <td>{{ about.content }}</td>
-                                                <td>
-                                                    <div class="dropdown">
-                                                        <button class="btn btn-outline-secondary dropdown-toggle" type="button"
-                                                            id="dropdownMenuButton{{ forloop.counter }}" data-bs-toggle="dropdown"
-                                                            aria-haspopup="true" aria-expanded="false">
-                                                            <i class="fas fa-ellipsis-v"></i>
-                                                        </button>
-                                                        <div class="dropdown-menu"
-                                                            aria-labelledby="dropdownMenuButton{{ forloop.counter }}">
-                                                            <a class="dropdown-item" href="{% url 'about-update' about.slug %}">
-                                                                <i class="fas fa-edit me-2"></i>Edit
-                                                            </a>
-                                                            <a class="dropdown-item text-danger" href="{% url 'about-delete' about.slug %}">
-                                                                <i class="fas fa-trash-alt me-2"></i>Delete
-                                                            </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle second-text fw-bold" href="#" id="navbarDropdown"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-user me-2"></i>{{request.user.username | title}}
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="{% url 'update-user' user.id %}">Manage Account</a></li>
+                                <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="container-fluid px-4">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="container">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Posts</li>
+                                </ol>
+                            </nav>
+                            <div class="container-fluid">
+                                <section class="about bg-light p-4">
+                                    <div class="d-flex justify-content-between align-items-center mb-4">
+                                        <h1 class="fs-4 text-muted">About</h1>
+                                        <a href="{% url 'create-about' %}" class="btn btn-primary"><i
+                                                class="fas fa-plus me-2"></i>Create
+                                            New</a>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">Title</th>
+                                                    <th scope="col">Content</th>
+                                                    <th scope="col">Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for about in aboutus %}
+                                                <tr>
+                                                    <th scope="row">{{ forloop.counter }}</th>
+                                                    <td>{{ about.title }}</td>
+                                                    <td>{{ about.content }}</td>
+                                                    <td>
+                                                        <div class="dropdown">
+                                                            <button class="btn btn-outline-secondary dropdown-toggle"
+                                                                type="button"
+                                                                id="dropdownMenuButton{{ forloop.counter }}"
+                                                                data-bs-toggle="dropdown" aria-haspopup="true"
+                                                                aria-expanded="false">
+                                                                <i class="fas fa-ellipsis-v"></i>
+                                                            </button>
+                                                            <div class="dropdown-menu"
+                                                                aria-labelledby="dropdownMenuButton{{ forloop.counter }}">
+                                                                <a class="dropdown-item"
+                                                                    href="{% url 'about-update' about.slug %}">
+                                                                    <i class="fas fa-edit me-2"></i>Edit
+                                                                </a>
+                                                                <a class="dropdown-item text-danger"
+                                                                    href="{% url 'about-delete' about.slug %}">
+                                                                    <i class="fas fa-trash-alt me-2"></i>Delete
+                                                                </a>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            {% empty %}
-                                            <tr>
-                                                <td colspan="4">No About Us information found.</td>
-                                            </tr>
-                                            {% endfor %}
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </section>
-                            <section class="contact">
-                                <div class="d-flex justify-content-between align-items-center mb-4">
-                                    <h1 class="fs-4 text-muted">Contact</h1>
-                                    <a href="{% url 'create-contact' %}" class="btn btn-primary"><i class="fas fa-plus me-2"></i>Create
-                                        New</a>
-                                </div>
-                                <div class="table-responsive">
-                                    <table class="table table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">Rank</th>
-                                                <th scope="col">Title</th>
-                                                <th scope="col">Content</th>
-                                                <th scope="col">Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            {% for contact in contacts %}
-                                            <tr>
-                                                <th scope="row">{{ forloop.counter }}</th>
-                                                <td>{{ contact.title }}</td>
-                                                <td>{{ contact.content }}</td>
-                                                <td>
-                                                    <div class="dropdown">
-                                                        <button class="btn btn-outline-secondary dropdown-toggle" type="button"
-                                                            id="dropdownMenuButton{{ forloop.counter }}" data-bs-toggle="dropdown"
-                                                            aria-haspopup="true" aria-expanded="false">
-                                                            <i class="fas fa-ellipsis-v"></i>
-                                                        </button>
-                                                        <div class="dropdown-menu"
-                                                            aria-labelledby="dropdownMenuButton{{ forloop.counter }}">
-                                                            <a class="dropdown-item" href="{% url 'contact-update' contact.slug %}">
-                                                                <i class="fas fa-edit me-2"></i>Edit
-                                                            </a>
-                                                            <a class="dropdown-item text-danger"
-                                                                href="{% url 'contact-delete' contact.slug %}">
-                                                                <i class="fas fa-trash-alt me-2"></i>Delete
-                                                            </a>
+                                                    </td>
+                                                </tr>
+                                                {% empty %}
+                                                <tr>
+                                                    <td colspan="4">No About Us information found.</td>
+                                                </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </section>
+                                <section class="contact bg-light p-4">
+                                    <div class="d-flex justify-content-between align-items-center mb-4">
+                                        <h1 class="fs-4 text-muted">Contact</h1>
+                                        <a href="{% url 'create-contact' %}" class="btn btn-primary"><i
+                                                class="fas fa-plus me-2"></i>Create
+                                            New</a>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Rank</th>
+                                                    <th scope="col">Title</th>
+                                                    <th scope="col">Content</th>
+                                                    <th scope="col">Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for contact in contacts %}
+                                                <tr>
+                                                    <th scope="row">{{ forloop.counter }}</th>
+                                                    <td>{{ contact.title }}</td>
+                                                    <td>{{ contact.content }}</td>
+                                                    <td>
+                                                        <div class="dropdown">
+                                                            <button class="btn btn-outline-secondary dropdown-toggle"
+                                                                type="button"
+                                                                id="dropdownMenuButton{{ forloop.counter }}"
+                                                                data-bs-toggle="dropdown" aria-haspopup="true"
+                                                                aria-expanded="false">
+                                                                <i class="fas fa-ellipsis-v"></i>
+                                                            </button>
+                                                            <div class="dropdown-menu"
+                                                                aria-labelledby="dropdownMenuButton{{ forloop.counter }}">
+                                                                <a class="dropdown-item"
+                                                                    href="{% url 'contact-update' contact.slug %}">
+                                                                    <i class="fas fa-edit me-2"></i>Edit
+                                                                </a>
+                                                                <a class="dropdown-item text-danger"
+                                                                    href="{% url 'contact-delete' contact.slug %}">
+                                                                    <i class="fas fa-trash-alt me-2"></i>Delete
+                                                                </a>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            {% empty %}
-                                            <tr>
-                                                <td colspan="4">No Contact information found.</td>
-                                            </tr>
-                                            {% endfor %}
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </section>
-                            <section class="services">
-                                <div class="d-flex justify-content-between align-items-center mb-4">
-                                    <h1 class="fs-4 text-muted">Service</h1>
-                                    <a href="{% url 'create-service' %}" class="btn btn-primary"><i class="fas fa-plus me-2"></i>Create
-                                        New</a>
-                                </div>
-                                <div class="table-responsive">
-                                    <table class="table table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">#</th>
-                                                <th scope="col">Title</th>
-                                                <th scope="col">Content</th>
-                                                <th scope="col">Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            {% for service in services %}
-                                            <tr>
-                                                <th scope="row">{{ forloop.counter }}</th>
-                                                <td>{{ service.title }}</td>
-                                                <td>{{ service.content|safe }}</td>
-                                                <td>
-                                                    <div class="dropdown">
-                                                        <button class="btn btn-outline-secondary dropdown-toggle" type="button"
-                                                            id="dropdownMenuButton{{ forloop.counter }}" data-bs-toggle="dropdown"
-                                                            aria-haspopup="true" aria-expanded="false">
-                                                            <i class="fas fa-ellipsis-v"></i>
-                                                        </button>
-                                                        <div class="dropdown-menu"
-                                                            aria-labelledby="dropdownMenuButton{{ forloop.counter }}">
-                                                            <a class="dropdown-item" href="{% url 'service-update' service.slug %}">
-                                                                <i class="fas fa-edit me-2"></i>Edit
-                                                            </a>
-                                                            <a class="dropdown-item text-danger"
-                                                                href="{% url 'service-delete' service.slug %}">
-                                                                <i class="fas fa-trash-alt me-2"></i>Delete
-                                                            </a>
+                                                    </td>
+                                                </tr>
+                                                {% empty %}
+                                                <tr>
+                                                    <td colspan="4">No Contact information found.</td>
+                                                </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </section>
+                                <section class="services bg-light p-4">
+                                    <div class="d-flex justify-content-between align-items-center mb-4">
+                                        <h1 class="fs-4 text-muted">Service</h1>
+                                        <a href="{% url 'create-service' %}" class="btn btn-primary"><i
+                                                class="fas fa-plus me-2"></i>Create
+                                            New</a>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">Title</th>
+                                                    <th scope="col">Content</th>
+                                                    <th scope="col">Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for service in services %}
+                                                <tr>
+                                                    <th scope="row">{{ forloop.counter }}</th>
+                                                    <td>{{ service.title }}</td>
+                                                    <td>{{ service.content|safe }}</td>
+                                                    <td>
+                                                        <div class="dropdown">
+                                                            <button class="btn btn-outline-secondary dropdown-toggle"
+                                                                type="button"
+                                                                id="dropdownMenuButton{{ forloop.counter }}"
+                                                                data-bs-toggle="dropdown" aria-haspopup="true"
+                                                                aria-expanded="false">
+                                                                <i class="fas fa-ellipsis-v"></i>
+                                                            </button>
+                                                            <div class="dropdown-menu"
+                                                                aria-labelledby="dropdownMenuButton{{ forloop.counter }}">
+                                                                <a class="dropdown-item"
+                                                                    href="{% url 'service-update' service.slug %}">
+                                                                    <i class="fas fa-edit me-2"></i>Edit
+                                                                </a>
+                                                                <a class="dropdown-item text-danger"
+                                                                    href="{% url 'service-delete' service.slug %}">
+                                                                    <i class="fas fa-trash-alt me-2"></i>Delete
+                                                                </a>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            {% empty %}
-                                            <tr>
-                                                <td colspan="4">No Service information found.</td>
-                                            </tr>
-                                            {% endfor %}
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </section>
+                                                    </td>
+                                                </tr>
+                                                {% empty %}
+                                                <tr>
+                                                    <td colspan="4">No Service information found.</td>
+                                                </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </section>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
-
-    <style>
-    .dropdown-toggle {
-    background-color: transparent;
-    border: none;
-    color: #6c757d;
-}
-
-.dropdown-toggle:hover{
-    background-color: transparent;
-    color: black;
-}
-
-.dropdown-toggle:focus {
-  box-shadow: none;
-}
-
-.dropdown-toggle i {
-  font-size: 1.2rem;
-}
-    </style>
 
     {% endblock content %}
 

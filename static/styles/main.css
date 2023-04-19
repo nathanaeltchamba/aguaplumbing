@@ -7,10 +7,11 @@
     --c-body: #727272;
     --box-shadow: 0px 15px 25px rgba(0,0,0,0.08);
     --transition: all 0.5s ease;
-    --main-bg-color: #009d63;
-    --main-text-color: #009d63;
-    --second-text-color: #bbbec5;
-    --second-bg-color: #c1efde;
+
+    --main-bg-color: #5e66d1;
+    --main-text-color: #6269d2;
+    --second-text-color: #888ee6;
+    --second-bg-color: #c6c9f5;
 }
 
 body {
@@ -229,11 +230,11 @@ footer .line {
   overflow-x: hidden;
   background-image: linear-gradient(
     to right,
-    #baf3d7,
-    #c2f5de,
-    #cbf7e4,
-    #d4f8ea,
-    #ddfaef
+    #bad8f3,
+    #c2dcf5,
+    #cbe0f7,
+    #d4e5f8,
+    #dde5fa
   );
 }
 

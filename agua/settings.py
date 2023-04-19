@@ -156,7 +156,7 @@ LOGOUT_REDIRECT_URL = '/login'
 
 LOGIN_URL = '/login'
 
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/dashboard'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
 

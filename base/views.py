@@ -46,9 +46,6 @@ class CustomLoginView(LoginView):
         # Get the username of the logged in user
         username = form.cleaned_data.get('username')
 
-        # Add a success message with the username
-        messages.success(self.request, "Logged in successfully")
-
         return super().form_valid(form)
 
 # MENU CRUD VIEWS --------------------------------
