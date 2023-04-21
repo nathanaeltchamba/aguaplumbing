@@ -4,29 +4,7 @@
 
 {% block content %}
 
-<!-- About Section -->
-<!-- <section class="section about-section">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-6">
-                <img src="/static/images/denver.jpg" class="img-fluid rounded" alt="About Us Image">
-            </div>
-            <div class="col-lg-6">
-                <h2>Our Story</h2>
-                <p>Agua Plumbing was founded over 20 years ago by John Doe, a master plumber with a passion for
-                    delivering high-quality plumbing services to residential and commercial clients. Since then, we have
-                    built a reputation for our professionalism, reliability, and exceptional customer service.</p>
-                <p>We are fully licensed and insured, and we use only the highest-quality materials and equipment for
-                    our plumbing work. Our team of skilled and experienced plumbers is dedicated to delivering the best
-                    possible results for every project we undertake.</p>
-                <p>At Agua Plumbing, we believe that every client deserves the best possible service, and we always go
-                    the extra mile to ensure that our clients are satisfied with our work. Contact us today to learn
-                    more about our services or to schedule a consultation.</p>
-            </div>
-        </div>
-    </div>
-</section> -->
-
+<!-- ABOUT HERO  -->
 <section id="hero-2" class="min-vh-100 d-flex align-items-center text-center">
     <div class="container">
         <div class="row">
@@ -38,6 +16,7 @@
     </div>
 </section>
 
+<!-- ABOUT CONTENT 1 -->
 <section id="about" class="section-padding bg-light">
     <div class="container">
         <div class="row">
@@ -46,8 +25,7 @@
                     <h1 class="display-4 fw-light">Why Choose Us</h1>
                     <div class="line"></div>
                 </div>
-
-                <div class="row justify-content-center align-items-center">
+                <div class="row justify-content-center align-items-center section-padding">
                     <div class="col-lg-6">
                         <img src="{% static 'images/constructionteam1.jpg' %}" alt="city image" class="img-fluid rounded">
                     </div>
@@ -58,12 +36,71 @@
                         <p class="lead">We are fully licensed and insured, and we use only the highest-quality materials and equipment
                             for our plumbing work. Our team of skilled and experienced plumbers is dedicated to delivering the best
                             possible results for every project we undertake.</p>
-                        <p class="lead">At Agua Plumbing, we believe that every client deserves the best possible service, and we always
-                            go the extra mile to ensure that our clients are satisfied with our work. Contact us today to learn more
-                            about our services or to schedule a consultation.</p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</section>
 
+<!-- ABOUT COUNTER -->
+<section id="counter1" class="section-padding">
+    <div class="container text-center">
+        <div class="row g-4 pt-4">
+            <div class="col-lg-4 col-sm-12 my-sm-3">
+                <h1 class=" display-4 text-white">300+</h1>
+                <h6 class="text-uppercase text-white mb-0  mt-3">Projects Completed</h6>
+            </div>
+            <div class="col-lg-4 col-sm-12 mt-sm-3">
+                <h1 class=" display-4 text-white">Service Area</h1>
+                <h6 class="text-uppercase text-white mb-0  mt-3">Greater Denver Metro Area</h6>
+            </div>
+            <div class="col-lg-4 col-sm-12 mt-sm-3">
+                <h1 class=" display-4 text-white">Certified</h1>
+                <h6 class="text-uppercase text-white mb-0  mt-3">Team Members</h6>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT CONTENT 2-->
+<section id="about" class="bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="row justify-content-center align-items-center section-padding">
+                    <div class="col-lg-7">
+                        <div class="accordion">
+                            <div class="accordion-item py-4 my-4">
+                                <div class="accordion-top py-4">
+                                    <h3><span class="me-2 fw-light">01</span> At Agua Plumbing, we believe that every client</h3>
+                                    <i class="fa fa-angle-down"></i>
+                                </div>
+                                <div class="accordion-content">
+                                    <p class="lead">deserves the best possible service, and we always go the extra mile to
+                                    ensure that our clients are satisfied with our work. Contact us today to learn more about our services or to schedule a
+                                    consultation.</p>
+                                </div>
+                            </div>
+                            <div class="accordion-item py-4 my-4">
+                                <div class="accordion-top py-4">
+                                    <h3><span class="me-2 fw-light">02</span> At Agua Plumbing, we believe that exceptional customer</h3>
+                                    <i class="fa fa-angle-down"></i>
+                                </div>
+                                <div class="accordion-content">
+                                    <p class="lead">service is the key to our success.
+                                        We're dedicated to providing top-notch service to all of our clients, and we'll do whatever it takes to ensure that
+                                        you're completely satisfied with our work.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-5">
+                        <img src="{% static 'images/construction1.jpg' %}" alt="city image" class="img-fluid rounded">
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -139,56 +176,89 @@
     </div>
 </section>
 
-<!-- <section class="section-padding">
-    <div class="row justify-content-center">
-        <div class="col-lg-5 py-5">
-            <div class="row">
-                <h3>About Us</h3>
-                <div class="col-12">
-                    <div class="info-box">
-                        <div class="icon">
-                            <i class="bi bi-stack"></i>
-                        </div>
-                        <div class="ms-4">
-                            <h5>Digital Marketing</h5>
-                            <p>It is a long established fact that a reader will be distracted by the readable
-                                content of a page </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 mt-4">
-                    <div class="info-box">
-                        <div class="icon">
-                            <i class="bi bi-stack"></i>
-                        </div>
-                        <div class="ms-4">
-                            <h5>E-mail Marketing</h5>
-                            <p>It is a long established fact that a reader will be distracted by the readable
-                                content of a page </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 mt-4">
-                    <div class="info-box">
-                        <div class="icon">
-                            <i class="bi bi-stack"></i>
-                        </div>
-                        <div class="ms-4">
-                            <h5>Buisness Marketing</h5>
-                            <p>It is a long established fact that a reader will be distracted by the readable
-                                content of a page </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-5">
-            <img src="/static/images/constructionteam.jpg" alt="">
-        </div>
-    </div>
-</section> -->
-
 <style>
+
+.accordion {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.accordion-item {
+  border: 0;
+  border-top: none;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.accordion-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  color: var(--c-brand);
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.accordion-top i:hover{
+  color: rgb(47, 121, 250);
+}
+
+.accordion-top h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #3b408c;
+}
+
+.accordion-content {
+  background: #fff;
+  color: #000000;
+  padding: 0px;
+  max-height: 0;
+  overflow: scroll;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+
+.accordion-content p {
+  margin: 0;
+}
+
+.accordion-top.active h3{
+  color: #6b96e1;
+}
+
+.accordion-top.active i {
+  transform: rotate(180deg);
+}
+
+.accordion-top.active + .accordion-content {
+  max-height: 1000px;
+  padding: 20px;
+  animation: fade-in 0.5s ease-out;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+    .section-title .line-long {
+        width: 480px;
+        height: 4px;
+        background-color: var(--c-brand-light);
+        margin: 16px auto 24px auto;
+    }
+
     .info-box {
         display: flex;
         align-items: center;
@@ -221,5 +291,21 @@
     }
 </style>
 
+    <script>
+        let accordionHeaders = document.querySelectorAll('.accordion-top');
+
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', () => {
+                    let accordionContent = header.nextElementSibling;
+                    header.classList.toggle('active');
+                    if (header.classList.contains('active')) {
+                        accordionContent.style.maxHeight = accordionContent.scrollHeight + 'px';
+                    } else {
+                        accordionContent.style.maxHeight = 0;
+                    }
+                });
+            });
+
+    </script>
 
 {% endblock content %}

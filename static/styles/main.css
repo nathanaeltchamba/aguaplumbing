@@ -303,6 +303,13 @@ footer .line {
     background-size: cover;
 }
 
+/* ABOUT COUNTER */
+#counter1 {
+    background: linear-gradient(rgba(var(--c-brand-rgb), 0.4), rgba(var(--c-brand-rgb), 0.2)), url('/static/images/banner2.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
 /* SERVICE DETAIL PAGE */
 
 #hero-1 {
@@ -490,9 +497,9 @@ text-align: center;}
 }
 
 .team-member .social-icons a {
-    width: 40px;
-    height: 40px;
     color: white;
+    width: 70px;
+    height: 70px;
 }
 
 .team-member:hover .social-icons {
