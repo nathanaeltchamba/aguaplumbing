@@ -1,12 +1,13 @@
 /* VARIABLES */
 :root {
     --c-dark: #212529;
-    --c-brand: #4e57d4;
-    --c-brand-light: #6970dd;
+    --c-brand: #30536F;
+    --c-brand-light: #45759c;
     --c-brand-rgb: 78, 87, 212;
     --c-body: #727272;
     --box-shadow: 0px 15px 25px rgba(0,0,0,0.08);
     --transition: all 0.5s ease;
+    /* #30536F */
 
     --main-bg-color: #5e66d1;
     --main-text-color: #6269d2;
@@ -72,6 +73,12 @@ img {
     text-transform: uppercase;
     border-radius: 0;
     padding: 10px 24px;
+}
+
+.logo-btn {
+    background-color: #30536F;
+    border-color: #30536F;
+    color: white;
 }
 
 .btn-brand {
